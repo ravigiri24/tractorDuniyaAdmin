@@ -1,0 +1,101 @@
+.overall-containblock {
+  background: #f5f5ff;
+}
+
+// used css end
+.top-searchicon {
+  font-size: 20px;
+  line-height: 16px;
+}
+
+.gridsearch-box {
+  border: solid thin #e1e1e1;
+  float: right;
+  width: 300px;
+  border-radius: 30px;
+  overflow: hidden;
+  i {
+    font-size: 20px;
+    line-height: 16px;
+  }
+}
+
+.custom-file-grid {
+  float: right;
+  height: 35px;
+  font-size: 14px;
+  overflow: hidden;
+  background: #555555;
+  .custom-file-input {
+    height: 37px;
+    line-height: 20px;
+    background: #000000 !important;
+  }
+  label {
+    padding: 6px 10px;
+    font-size: 14px;
+    height: 37px;
+    margin-bottom: 0px;
+  }
+  label:after {
+    height: 100%;
+    line-height: 15px;
+  }
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed thead > tr > th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.record-table {
+  max-height: 400px;
+  overflow: auto;
+  display: inline-table;
+  overflow-x: hidden;
+  width: 100%;
+  .sticky-head {
+    width: 100%;
+    display: inline-table;
+    position: sticky;
+    top: 0px;
+  }
+  .table-bodydata {
+    width: 100%;
+    display: inline-table;
+    tr {
+      display: inline-table;
+    }
+  }
+}
+
+.submit-grid-btn {
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+  height: 37px;
+  line-height: 15px;
+}
+
+.dash-cardbox {
+  min-height: 340px;
+}

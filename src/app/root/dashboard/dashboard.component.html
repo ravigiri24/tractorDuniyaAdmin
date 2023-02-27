@@ -1,0 +1,1048 @@
+<section>
+    <div class="dashboard-containner">
+        <div class="brics_filter_date">
+            <h5>{{dash_detail.today_date}} - Sale [{{dash_detail.today_sale}}]</h5>
+            <div class="brics_datewise">
+                <b>Filter By Date : </b>
+                <form [formGroup]="report_dates">
+                <input type="date" formControlName="start_date" class="brics_filter_date mr-0" placeholder="Start Date">
+                <input type="date" formControlName="end_date" class="brics_filter_date" placeholder="End Date">
+                <button type="button" (click)="dash_info()" [disabled]="!report_dates.valid" class="btn btn-primary btn-sm btn-dashcalendar">Apply</button>
+            </form>
+            </div>
+        </div>
+        <div class="top_brics">
+            <div class="brics_containers">
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Month Sale
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-success h2 font-weight-bold mb-0">{{dash_detail.monthly_total_sale}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/month-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Week Sale
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-success h2 font-weight-bold mb-0">{{dash_detail.weekly_total_sale}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/week-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Total Sale
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-warning h2 font-weight-bold mb-0">{{dash_detail.total_sale}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/total-sale-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Restaurant Sale
+                                    </h5>
+                                    <span class="text-warning h2 font-weight-bold mb-0">{{dash_detail.restauren_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/resturent-sale-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Rooms Sale
+                                    </h5>
+                                    <span class="text-warning h2 font-weight-bold mb-0">{{dash_detail.room_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/rooms-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Offline Sale
+                                    </h5>
+                                    <span class="text-warning h2 font-weight-bold mb-0">{{dash_detail.offline_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/offline-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Online Sale
+                                    </h5>
+                                    <span class="text-warning h2 font-weight-bold mb-0">{{dash_detail.online_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/online-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                      Discount
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-success h2 font-weight-bold mb-0">{{dash_detail.discount}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/sale-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Total Tax
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.tax}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/tax-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Takeaway
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-success h2 font-weight-bold mb-0">{{dash_detail.today_takeAway_sale}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/takeaway-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Dine In
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.today_dinein_sale}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/dinein-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Quick Bill
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.discount}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/quickbill-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Cancelled Bill - <small>Offline</small>
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.offline_canceled_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/cancelbill-offline-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Cancelled Bill - <small>Online</small>
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.online_canceled_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/cancelbill-online-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Free Bill
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.free_bill_sales}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/freebill-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Deleted Bill
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">{{dash_detail.discount}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/deletebill-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Due Payments
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">1,100</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/duebill-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Zomato
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">0</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/zomato-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/recharge" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Swiggy
+                                    </h5>
+                                    <span class="text-success h2 font-weight-bold mb-0">0</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/dash-icons/swiggy-icon.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/memberlist" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Members
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-gray h2 font-weight-bold mb-0">{{dash_detail.member_count}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/members-img.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/posbilling" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        POS Billing
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-danger h2 font-weight-bold mb-0">{{dash_detail.pos_billing}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/pos-billing-img.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbaord_brics">
+                    <div class="card card-stats">
+                        <div routerLink="/rooms" class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        Rooms
+                                    </h5>
+                                    <span *ngIf="dash_detail" class="text-purple h2 font-weight-bold mb-0">{{dash_detail.room}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <img src="./assets/imgs/rooms-img.png" class="dash_img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--
+            <div class="col-xl-3 col-lg-6" *ngFor="let get of dash_detail">
+                <div class="card card-stats">
+                    <div routerLink="/recharge" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    {{get.tab_name | titlecase}}
+                                </h5>
+                                <span  class="text-success h2 font-weight-bold mb-0">{{get.tcount}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img [src]="get.tab_image" class="dash_img" />
+                            </div>
+                        </div>
+                        <p class="mt-3 mb-0 text-muted text-sm">
+                            <span class="text-success mr-2"></span>
+                            <span class="text-nowrap">{{get.tab_name | titlecase}} Today</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/recharge" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                             Cash
+                                </h5>
+                                <span *ngIf="dash_detail" class="text-success h2 font-weight-bold mb-0">{{dash_detail.cash}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/recharge-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                        <p class="mt-3 mb-0 text-muted text-sm">
+                            <span class="text-success mr-2"></span>
+                            <span class="text-nowrap">Cash Received</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/transactionlist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    Transaction
+                                </h5>
+                                <span *ngIf="dash_detail" class="text-pink h2 font-weight-bold mb-0">{{dash_detail.transaction}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/transaction-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/kotlist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    CARD
+                                </h5>
+                                <span class="text-yellow h2 font-weight-bold mb-0" *ngIf="dash_detail">{{dash_detail.card}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/kot-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/billslist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    PAYTM
+                                </h5>
+                                <span class="text-info h2 font-weight-bold mb-0" *ngIf="dash_detail">{{dash_detail.paytm}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/bill-print-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/billslist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    GOOGLE PAY
+                                </h5>
+                                <span class="text-info h2 font-weight-bold mb-0" *ngIf="dash_detail">{{dash_detail.googlepay}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/bill-print-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/billslist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    PHONE PE
+                                </h5>
+                                <span class="text-info h2 font-weight-bold mb-0" *ngIf="dash_detail">{{dash_detail.phonepe}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/bill-print-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashbaord_brics">
+                <div class="card card-stats">
+                    <div routerLink="/billslist" class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">
+                                    OTHER
+                                </h5>
+                                <span class="text-info h2 font-weight-bold mb-0" *ngIf="dash_detail">{{dash_detail.other}}</span>
+                            </div>
+                            <div class="col-auto">
+                                <img src="./assets/imgs/bill-print-img.png" class="dash_img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+            <div class="right_block">
+                <div class="card amont_received_section">
+                    <div class="amount_row">
+                        <img src="./assets/imgs/cash.png">
+                        <span class="amount_by">Cash</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.cash}}</span>
+                    </div>
+                    <div class="amount_row">
+                        <img src="./assets/imgs/card.png">
+                        <span class="amount_by">Card</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.card}}</span>
+                    </div>
+                    <div class="amount_row">
+                        <img src="./assets/imgs/paytm.png">
+                        <span class="amount_by">Paytm</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-red" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.paytm}}</span>
+                    </div>
+                    <div class="amount_row">
+                        <img src="./assets/imgs/phonepay.png">
+                        <span class="amount_by">Phone Pay</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.phonepe}}</span>
+                    </div>
+                    <div class="amount_row">
+                        <img src="./assets/imgs/googlepay.png">
+                        <span class="amount_by">Google Pay</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-yellow" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.googlepay}}</span>
+                    </div>
+                    <div class="amount_row">
+                        <img src="./assets/imgs/other.png">
+                        <span class="amount_by">Other</span>
+                        <div class="progress progress-xs mb-0">
+                            <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                        </div>
+                        <span class="amount">{{dash_detail.other}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart_block mb-3">
+            <div class="row">
+                <div class="col-sm-4 col-lg-4 col-xs-6">
+                    <div class="card chart_card">
+                        <h5> Total Order</h5>
+                        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                        </canvas>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-xs-6">
+                    <div class="card chart_card">
+                        <h5>Current Month Top 5 Items Sale</h5>
+                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+                      </canvas>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-xs-6">
+                    <div class="card chart_card">
+                        <h5>Recent 6 Month Sale</h5>
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors">
+                      </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brics End -->
+        <div class="row mt-1">
+            <div class="col-xl-12 mb-3">
+                <div class="card shadow dash-cardbox">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col col-sm-4">
+                                <h3 class="mb-0">Recent Birthday</h3>
+                            </div>
+                            <div class="col text-right">
+                                <div class="pull-right ">
+                                    <a data-toggle="modal" data-target="#send_massage_modal" *ngIf="selectedbirthdayusers" class="btn btn-sm btn-warning text-white pull-right right_list_btn right">
+                                        <i class="mdi mdi-eye-check mr-2"></i>Send Message</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush mydata-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="col s_no">
+                                        <div class="custom-control custom-control-alternative custom-checkbox">
+                                            <input class="custom-control-input" id="select_all" type="checkbox">
+                                            <label class="custom-control-label" for="select_all"></label>
+                                        </div>
+                                    </th>
+                                    <th class="col">Guest Name</th>
+                                    <th class="col">Birth Date</th>
+                                    <th class="col">Contact</th>
+                                    <th class="col">Last Visit</th>
+                                    <!-- <th class="col text-center">Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let get of birthdaylist| filter: kot_search;let n = index">
+                                    <td class="col text-center">
+                                        <div class="custom-control custom-control-alternative custom-checkbox">
+                                            <input class="custom-control-input" id="bday_check{{n+1}}" type="checkbox" (change)="selectforbirthday($event.target.checked,n)">
+                                            <label class="custom-control-label" for="bday_check{{n+1}}"></label>
+                                        </div>
+                                    </td>
+                                    <td class="col"> {{get.member_fname}}&nbsp;{{get.member_lname}}</td>
+                                    <td class="col">{{get.member_dob | date: 'dd-MM-yyyy'}}</td>
+                                    <td class="col"> {{get.member_mobile}}</td>
+                                    <td class="col">10-01-2021</td>
+                                    <!-- <td class="col action_col">
+                                        <a data-target="#bdaydetails_modal" data-toggle="modal" class="btn btn-sm btn-primary">
+                                            <i class="mdi mdi-eye text-white"></i></a>
+                                    </td> -->
+                                </tr>
+                                <tr>
+                                    <td colspan="6" *ngIf='birthdaylist.length>0' class="d-none">
+                                        <div class="no_found">
+                                            <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b></div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12 mb-3">
+                <div class="card shadow dash-cardbox">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Recent KOT Generated</h3>
+                            </div>
+                            <div class="col text-right">
+                                <div class="pull-right">
+                                    <a routerLink='/root/kot' class="btn btn-sm btn-warning text-white pull-right right_list_btn">
+                                        <i class="mdi mdi-message mr-2"></i>View all</a>
+                                </div>
+                                <div class="listsearch-topblock">
+                                    <div class="search-box">
+                                        <input type="search" placeholder="Search" [(ngModel)]="kot_search" class="searchtxt" />
+                                        <i class="mdi mdi-magnify"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush mydata-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="col s_no">S.No</th>
+                                    <th class="col">KOT.No</th>
+                                    <th class="col">Table Name</th>
+                                    <th class="col">Date</th>
+                                    <th class="col"> Time</th>
+                                    <th class="col">Staff Name</th>
+                                    <th class="col text-center action_col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let kot of kot_list| filter: kot_search;let n = index ">
+                                    <td class="col s_no">{{n+1}}</td>
+                                    <td class="col">
+                                        {{kot.order_code}}
+                                    </td>
+                                    <td class="col">
+                                        {{kot.table_no}}
+                                    </td>
+                                    <td class="col">
+                                        {{kot.dorder_date}}
+                                    </td>
+                                    <td class="col ">
+                                        {{kot.dorder_time}}
+                                    </td>
+                                    <td class="col">
+                                        {{kot.waiter_name}}
+                                    </td>
+                                    <td class="col action_col">
+                                        <a data-target="#kotdetails_modal" (click)="order_wise_kotDetail(kot)" data-toggle="modal" class="btn btn-sm btn-primary">
+                                            <i class="mdi mdi-eye text-white"></i></a>
+                                        <a (click)="print_kot_direct(kot)" class="btn btn-sm btn-info btn-sm">
+                                            <i class="mdi mdi-printer text-white"></i></a>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="kot_list_show==0">
+                                    <td colspan="8">
+                                        <div class="no_found">
+                                            <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 mb-xl-0">
+                <div class="card shadow dash-cardbox">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col col-sm-4">
+                                <h3 class="mb-0">Recent BILLS Generated</h3>
+                            </div>
+                            <div class="col text-right">
+                                <div class="pull-right">
+                                    <a routerLink='/root/billing' class="btn btn-sm btn-warning text-white pull-right right_list_btn">
+                                        <i class="mdi mdi-eye-check mr-2"></i>View all</a>
+                                </div>
+                                <div class="listsearch-topblock">
+                                    <div class="search-box">
+                                        <input type="search" placeholder="Search" [(ngModel)]="bill_search" class="searchtxt" />
+                                        <i class="mdi mdi-magnify"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush mydata-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="col s_no">S.No</th>
+                                    <th class="col">Bill.No</th>
+                                    <th class="col">Table Name</th>
+                                    <th class="col total_col">Amount</th>
+                                    <th class="col">Date & Time</th>
+                                    <th class="col">Staff Name</th>
+                                    <th class="col">Status</th>
+                                    <th class="col action_col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bill of bill_list| filter: bill_search;let n = index">
+                                    <td class="col s_no">{{n+1}}</td>
+                                    <td class="col">
+                                        {{bill.order_code}}
+                                    </td>
+                                    <td class="col">
+                                        {{bill.order_type_no}}
+                                    </td>
+                                    <td class="col total_col">
+                                        {{bill.order_price}}
+                                    </td>
+                                    <td class="col ">
+                                        {{bill.order_datetime}}
+                                    </td>
+                                    <td class="col">
+                                        {{bill.staff_name}}
+                                    </td>
+                                    <td class="col">
+                                        <ng-container *ngIf="bill.payment_status === '1' ; then paid; else unpaid">
+                                        </ng-container>
+                                        <ng-template #paid>
+                                            <div class="badge bg-success text-white">Paid</div>
+                                        </ng-template>
+                                        <ng-template #unpaid>
+                                            <div class="badge bg-warning text-white">OnGoing</div>
+                                        </ng-template>
+
+                                    </td>
+                                    <td class="col action_col action_2">
+                                        <a data-target="#biildetails_modal" (click)="bill_detail(bill)" data-toggle="modal" class="btn btn-sm btn-primary">
+                                            <i class="mdi mdi-eye text-white"></i></a>
+                                        <a (click)="print_bill(bill.order_type_no)" class="btn btn-sm btn-info btn-sm">
+                                            <i class="mdi mdi-printer text-white"></i></a>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="bill_list_show==0">
+                                    <td colspan="8">
+                                        <div class="no_found">
+                                            <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b></div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-center mt-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Send Message Modal -->
+    <div class="modal upload-filemodel fade" id="send_massage_modal" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send Message</h4>
+                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <form>
+                            <div class="form-group ">
+                                <label><b>Selected Guest</b></label>
+                                <div class="guest_select_box">
+                                    <div class="selected_guest_box" *ngFor="let get of selectedbirthdayusers">
+                                        <b>{{get.member_fname}}&nbsp;{{get.member_lname}}</b>
+                                        <small>{{get.member_mobile}}</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Event type:</label>
+                                <select class="form-control" (change)="getmessagetype($event.target.value)">
+                                  <option value="sss">select option</option>
+                                  <option *ngFor="let get of message_type" [value]="get.id">{{get.message_type}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><b>Message</b></label>
+                                <div class="input-group login-txtbox">
+                                    <textarea rows="3" class="form-control" placeholder="Enter Massage" name="birthdaymessage" [(ngModel)]="birthdaymessage"></textarea>
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button data-dismiss="modal" class="btn btn-primary" (click)="submitmessage()">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bday Details Modal -->
+    <div class="modal upload-filemodel fade" id="bdaydetails_modal" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Guest Details</h4>
+                    <button type="button" id="close_bill_modal" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Guest Name :</b></td>
+                                    <td>Sachin Mahra</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Birth Date :</b></td>
+                                    <td>30-02-1989</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Contact No :</b></td>
+                                    <td>6263626505</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Last Visit :</b></td>
+                                    <td>10-01-2021</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Last Order Amount :</b></td>
+                                    <td>1550.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bills Details  -->
+    <div class="modal upload-filemodel fade" id="biildetails_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bill Details</h4>
+                    <button type="button" id="close_bill_modal" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Bill No. :</b></td>
+                                    <td>{{b_order_code}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Table Name :</b></td>
+                                    <td>{{b_table_no}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Date & Time :</b></td>
+                                    <td>{{b_dorder_date}}<small>{{b_dorder_time}}</small></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Staff Name :</b></td>
+                                    <td *ngIf="branch_details">{{branch_details.staff_fname}}&nbsp;{{branch_details.staff_lname}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive popup_table bg-white">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">S.no</th>
+                                    <th style="width: 35%;">Item Name</th>
+                                    <th class="text-center" style="width: 15%;">Item Qty</th>
+                                    <th style="width: 20%;">Rate</th>
+                                    <th style="width: 20%;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ord of bill_order;let n = index">
+                                    <td class="text-center">{{n+1}}</td>
+                                    <td>{{ord.dorder_name}}</td>
+                                    <td class="text-center">{{ord.dorder_qty}}</td>
+                                    <td class="text-right">{{ord.dorder_prd_price}}</td>
+                                    <td class="text-right">{{ord.dorder_total_price}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="text-center mt-3">
+                            <button (click)="print_bill(b_table_no)" class="btn btn-md btn-info">
+                            <i class="mdi mdi-printer text-white"></i>Print Bill</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- KOT Details  -->
+    <div class="modal upload-filemodel fade" id="kotdetails_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">KOT Details</h4>
+                    <button type="button" id="close_kot_modal" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>KOT No. :</b></td>
+                                    <td>{{m_order_code}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Table Name :</b></td>
+                                    <td>{{m_table_no}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Date & Time :</b></td>
+                                    <td>{{m_dorder_date}} <small>{{m_dorder_time}} </small></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Staff Name :</b></td>
+                                    <td>{{m_waiter_name}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive popup_table bg-white">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">S.no</th>
+                                    <th style="width: 40%;">Item Name</th>
+                                    <th style="width: 20%;">Item Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let ord of m_order_detail;let n = index">
+                                    <td class="text-center">{{n+1}}</td>
+                                    <td>{{ord.dorder_name}}</td>
+                                    <td class="text-center">{{ord.dorder_qty}}</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="text-center mt-3">
+                            <button (click)="print_kot()" class="btn btn-md btn-info">
+                            <i class="mdi mdi-printer text-white"></i>Print Kot</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert_popup alert alert-info" role="alert" id="info_popup">
+        <strong>Info!</strong> please used this dialoge for information purpose.
+    </div>
+    <div class="alert_popup alert alert-success" role="alert" id="success_popup">
+        <strong>Success!</strong> Records uploaded successfully.
+    </div>
+    <div class="alert_popup alert alert-danger" role="alert" id="error_popup">
+        <strong>Danger!</strong> please used this dialoge for error purpose.
+    </div>
+    <div class="alert_popup alert alert-warning" role="alert" id="warning_popup">
+        <strong>Warning!</strong> please used this dialoge for warning purpose.
+    </div>
+</section>

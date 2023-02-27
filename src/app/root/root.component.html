@@ -1,0 +1,126 @@
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white navleft-siderbar no-print" id="sidenav-main">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand p-0 text-left">
+            <img src="./assets/imgs/tractorDuniya.jpeg" class="navbar-brand-img" />
+        </a>
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                     
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                          <span></span>
+                          <span></span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav left-menu" (click)="onLetfMenuClick($event)">
+                <li class="nav-item">
+                    <a routerLink="/root/" class="nav-link active"> <i class="mdi mdi-home-outline"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/brandManagement" class="nav-link"> <i class="mdi mdi-dropbox"></i> Brand Management
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/members" class="nav-link"> <i class="mdi mdi-dropbox"></i> Brand Management
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/customer" class="nav-link"> <i class="mdi mdi-account-group-outline"></i> Customer List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/loanlist" class="nav-link"> <i class="mdi mdi-account-switch-outline"></i> Loan List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/dailycollection" class="nav-link"> <i class="mdi mdi-account-alert-outline"></i> Daily Collection
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a routerLink="/root/offers" class="nav-link"> <i class="mdi mdi-tag-multiple-outline"></i>Offers List</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/collectmoney" class="nav-link"> <i class="mdi mdi-account-cash-outline"></i> Collect Money
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/fixeddeposit" class="nav-link"> <i class="mdi mdi-card-account-details-star-outline"></i> Fixed Deposit
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/root/reports" class="nav-link"> <i class="mdi mdi-chart-bar-stacked"></i> Reports
+                    </a>
+                </li>               
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav  class="navbar navbar-expand-md fixed-top top-navigation no-print" id="navbar-main">
+    <div class="container-fluid search-topblock">
+        <form class="navbar-search navbar-search-light form-inline mr-sm-3">
+            <div class="search-box" style="display: none;">
+                <i class="mdi mdi-magnify"></i>
+                <input type="text" class="searchtxt" placeholder="Search">
+            </div>
+        </form>
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+            <li class="nav-item dropdown notification-liblock">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="notiblock">
+                        <i class="mdi mdi-bell"></i>
+                        <div class="noticounter">5</div>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="media align-items-center">
+                        <span class="avatar avatar-sm rounded-circle">
+                     <!-- <img alt="User" src="./assets/imgs/boss.png" /> -->
+                      <img alt="User" src="{{staff_img}}" />
+                      </span>
+                        <div class="media-body ml-2  d-lg-block">
+                            <span class="mb-0 text-sm  font-weight-bold " style="text-transform: uppercase;" >{{staff_name}}</span>
+                        </div>
+                        <div class="arrowblock">
+                            <i class="mdi mdi-chevron-down"></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                    <div class="dropdown-header noti-title pt-0 pb-0" style="text-align: center;">
+                        <h5 class="text-overflow m-0"></h5>
+                    </div>
+                    <a routerLink="/root/proiledetails" class="dropdown-item">
+                        <i class="mdi mdi-account-outline mdi-18px"></i>
+                        <span>My Profile</span>
+                    </a>
+                    <a routerLink="/root/changepassword" class="dropdown-item">
+                        <i class="mdi mdi-lock-alert mdi-18px"></i>
+                        <span>Change Password</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a (click)="logout()" class="dropdown-item">
+                        <i class="mdi mdi-logout mdi-18px"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-content">
+    <div class="overall-containblock">
+        <router-outlet></router-outlet>
+    </div>
+</div>

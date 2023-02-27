@@ -1,0 +1,366 @@
+<div class="list-containner">
+    <div class="row">
+        <div class="col-xl-12 mb-xl-0">
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-4 pl-1">
+                            <h3 class="mb-0">Members List</h3>
+                        </div>
+                        <div class="col text-right pr-1">
+                            <div class="listsearch-topblock search_withaddbtn">
+                                <div class="search-box">
+                                    <input type="search" placeholder="Search" class="searchtxt" />
+                                    <i class="mdi mdi-magnify"></i>
+                                </div>
+                                <div class="right_addbtn">
+                                    <button data-toggle="modal" (click)="addMember(0)" data-target="#actionMembers_modal"
+                                        type="button" class="btn btn-success btn-sm create_header_btn">
+                                        <i class="mdi mdi-account">
+                                        </i>
+                                        <span class="btn-txt button-text">Add Member</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table align-items-center table-flush mydata-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col">Member No.</th>
+                            <th class="col text-center">Image</th>
+                            <th class="col">Name</th>
+                            <th class="col">Mobile</th>
+                            <th class="col">Email</th>
+                            <th class="col">Aadhar No.</th>
+                            <th class="col">Join Date</th>
+                            <th class="col text-center">Status</th>
+                            <th class="col action_col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="col">RK-101</td>
+                            <td class="col">
+                                <div class="list_image_block">
+                                    <img src="assets/imgs/default-pic.png" />
+                                </div>
+                            </td>
+                            <td class="col">Roshan Kanojiya</td>
+                            <td class="col">6263626505</td>
+                            <td class="col">roshan@gmail.com</td>
+                            <td class="col">126585965214</td>
+                            <td class="col">12-mar-2021</td>
+                            <td class="col text-center"><span class="badge bg-success text-white">Active</span></td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#actionMembers_modal" data-toggle="modal"
+                                            (click)="editDetails(1)">
+                                            <i class="mdi mdi-pencil mr-2"></i>Edit Details</a>
+                                        <a class="dropdown-item" (click)="viewDetails()" data-target="#view_modal"
+                                            data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>
+                                        <a class="dropdown-item" (click)="statusActive()">
+                                            <i class="mdi mdi-account-off-outline mr-2"></i>Inactive</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- <tr *ngFor="let list of get_member_list; let i = index">
+                                <td class="col text-center">{{list.member_no}}</td>
+                                <td class="col">
+                                    {{list.member_fname}} {{list.member_lname}}
+                                </td>
+                                <td class="col">
+                                    {{list.member_mobile}}
+                                </td>
+                                <td class="col">
+                                    {{list.member_dob}}
+                                </td>
+                                <td class="col">
+                                    {{list.reference_name}}
+                                </td>
+                                <td class="action_col">
+                                    <div ngbDropdown placement="bottom-right">
+                                        <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" (click)="edit_details(list)" routerLink="/root/addmember">
+                                                <i class="mdi mdi-pencil mr-2"></i>Edit Details</a>
+                                            <a class="dropdown-item" (click)="view_details(list)" data-target="#view_modal" data-toggle="modal">
+                                                <i class="mdi mdi-eye mr-2"></i>View Details</a>                                           
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr> -->
+                        <tr *ngIf="show_list==1">
+                            <td colspan="6">
+                                <div class="no_found">
+                                    <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- View Member Details Popup -->
+    <div class="modal upload-filemodel fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Member No. :</b></td>
+                                    <td>RK-101</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Profile Image :</b></td>
+                                    <td>
+                                        <div class="list_image_block float-left">
+                                            <img src="assets/imgs/default-pic.png">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Member Name :</b></td>
+                                    <td>{{member_details.member_fname}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Mobile :</b></td>
+                                    <td>{{member_details.member_mobile}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email Id :</b></td>
+                                    <td>sumit@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aadhar No. :</b></td>
+                                    <td>626362650548</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Join Date :</b></td>
+                                    <td>12-Mar-2021</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status :</b></td>
+                                    <td><span class="badge bg-success text-white">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Address :</b></td>
+                                    <td>Home no. 72, bajrang nagar jabalpur </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add / Edit Members Popup -->
+    <div class="modal fade" id="actionMembers_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mb-0" *ngIf="member_action == 1">Add New Members</h5>
+                    <h5 class="modal-title mb-0" *ngIf="member_action != 1">Update Members Details</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- <form class="create_collection">
+                    <div class="modal-body modal_insert bg-secondary">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="header_popup">Branch Basic Details </h5>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Hotel Name</mat-label>
+                                    <input matInput required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Short Name</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Mobile</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-2 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>GST TIN</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-6 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput required formControlName="address"></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xs-12">
+                                <label class="m-0">Hotel Logo</label>
+                                <input type="file" class="file" class="fileupload" />
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xs-12">
+                                <label class="m-0">Branch Image</label>
+                                <input type="file" class="file" class="fileupload" />
+                            </div>
+                            <div class="col-12">
+                                <h5 class="header_popup">Branch Admin Details </h5>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Admin Name</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Mobile No.</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>User Id</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input type="password" matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <h5 class="header_popup">Please choose subscription</h5>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Plan type </mat-label>
+                                    <mat-select matNativeControl formControlName="plane_type">
+                                        <mat-option value="Demo">Demo</mat-option>
+                                        <mat-option value="Monthly">Monthly</mat-option>
+                                        <mat-option value="Quaterly">Quaterly</mat-option>
+                                        <mat-option value="Yearly">Yearly</mat-option>
+                                        <mat-option value="Permanent">Permanent</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Branch Type</mat-label>
+                                    <mat-select matNativeControl>
+                                        <mat-option value="1">hotel and restaurent</mat-option>
+                                        <mat-option value="2">Restaurent</mat-option>
+                                        <mat-option value="3">Hotel</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Start Subscription Date</mat-label>
+                                    <input type="text" matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Valid Days</mat-label>
+                                    <input type="text" matInput required />
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                    </div>
+                </form> -->
+                <div class="modal-footer text-right">
+                    <button type="button" mat-button mat-stroked-button data-dismiss="modal"><i
+                            class="mdi mdi-close mr-1"></i>Cancel</button>
+                    <button class="submit_btn" *ngIf="member_action == 1" data-dismiss="modal" color="primary" mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Submit
+                    </button>
+                    <button class="submit_btn" *ngIf="member_action != 1" data-dismiss="modal" color="primary" mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Assigned Card Popup -->
+    <div class="modal upload-filemodel fade" id="addmember_modal" tabindex="-1" role="dialog"
+        aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" *ngIf="member_action == 0">New Member Ragistration</h4>
+                    <h4 class="modal-title" *ngIf="member_action != 0">Update Member Ragistration</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Select Hotel</mat-label>
+                                        <mat-select matNativeControl>
+                                            <mat-option value="Hotel 1">Hotel 1 - 6263626505 - 3 Brnach </mat-option>
+                                            <mat-option value="Hotel 2">Hotel 2 - 6263626505 - 3 Brnach </mat-option>
+                                            <mat-option value="Hotel 3">Hotel 3 - 6263626505 - 3 Brnach </mat-option>
+                                            <mat-option value="Hotel 4">Hotel 4 - 6263626505 - 3 Brnach </mat-option>
+                                            <mat-option value="Hotel 5">Hotel 5 - 6263626505 - 3 Brnach </mat-option>
+                                        </mat-select>
+                                    </mat-form-field> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="login-input-label">Scan RFID of card</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-currency-inr"></i></span>
+                                    </div>
+                                    <input type="number" placeholder="Enter RFID number of card" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button class="btn btn-primary">
+                                    <span *ngIf="generatecard_loading"
+                                        class="spinner-border spinner-border-sm mr-1"></span>
+                                    Generate Card
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

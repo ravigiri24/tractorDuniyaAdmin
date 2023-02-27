@@ -1,0 +1,136 @@
+<section class="profile-container">
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card bg-secondary shadow border-0">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4 class="mb-0">UPDATE PROFILE
+                                    <a class="btn btn-sm btn-primary text-white right_actionbtn" routerLink="/root/changepassword" >
+                                        <i class="mdi mdi-lock-alert mr-2"></i>Change Password</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-lg-3">
+                        
+                            <div class="row">
+                                <div class="col-md-3 pl-2">
+                                    <div class="avatar-upload ml-0">
+                                        <div class="avatar-edit">
+                                            <input type="file" (change)="onFileChange($event)" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                            <label for="imageUpload" class="mdi mdi-camera"></label>
+                                        </div>
+                                        <div class="avatar-preview">
+                                            <div id="imagePreview" style="background-image: url({{img}});">
+                                                <!-- <div *ngIf="profileletterblock" class="load_defaultletter">{{ this.profileletter }}</div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                        <form [formGroup]="updateprofileForm">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                  <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-account"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="Staff Name" formControlName="name" class="form-control" />
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-account-heart-outline"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="Father Name" formControlName="fatherName" class="form-control" />
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-phone"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="Staff Mobile" formControlName="mobile" class="form-control" />
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-email-alert"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="Enter Email" formControlName="email" class="form-control" />
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-card-account-details-outline"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="User ID" formControlName="user_id" class="form-control" />
+                                                </div>
+                                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.username.errors.required">Userid is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-account-key-outline"></i></span>
+                                                    </div>
+                                                    <input type="text" placeholder="Password" formControlName="user_password" class="form-control" />
+                                                </div>
+                                                <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.emailid.errors.required">Password is required</div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni mdi mdi-office-building"></i></span>
+                                            </div>
+                                            <input type="text" placeholder="Address" formControlName="address" class="form-control" />
+                                        </div>
+                                        <!-- <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
+                                            <div *ngIf="f.company.errors.required">Address is required</div>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group text-center mb-0">
+                                        <button (click)="updateprofile()" [disabled]="!updateprofileForm.valid" class="btn btn-block btn-primary mt-3 midium-button">
+                                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Update Profile
+                                  </button>
+                                        <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+                                    </div>
+</form>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+  
+</section>

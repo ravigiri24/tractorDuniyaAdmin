@@ -1,0 +1,212 @@
+<div class="list-containner">
+    <div class="row brics_row">
+        <div class="tile_stats_count blue_tiles">
+            <span class="count_top"><i class="mdi mdi-cash-multiple"></i> 
+                Today collect money</span>
+            <div class="count"><i class="mdi mdi-currency-inr"></i>1500</div>
+        </div>
+        <div class="tile_stats_count orange_tiles">
+            <span class="count_top"><i class="mdi mdi-cash-100"></i> Current Month Collect</span>
+            <div class="count"><i class="mdi mdi-currency-inr"></i>11500</div>
+        </div>
+        <div class="tile_stats_count purple_tiles">
+            <span class="count_top"><i class="mdi mdi-account-group-outline"></i> Total Coustomer</span>
+            <div class="count">10 Coustomer</div>
+        </div>
+        <div class="tile_stats_count green_tiles">
+            <span class="count_top"><i class="mdi mdi-account-multiple-plus-outline"></i> Recent Month Coustomer</span>
+            <div class="count">10 New Join</div>
+        </div>
+    </div>
+    <div class="row">        
+        <div class="col-xl-12 mb-xl-0">           
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-4 pl-1">
+                            <h3 class="mb-0">Apply new loan list</h3>
+                        </div>
+                        <!-- <div class="col text-right pr-1">
+                            <div class="listsearch-topblock search_withaddbtn">
+                                <div class="search-box">
+                                    <input type="search" placeholder="Search" class="searchtxt long_search" />
+                                    <i class="mdi mdi-magnify"></i>
+                                </div>
+                                <div class="right_addbtn">
+                                    <button data-toggle="modal" data-target="#addmember_modal" type="button" class="btn btn-success btn-sm create_header_btn">
+                                        <i class="mdi mdi-account">
+                                        </i>
+                                        <span class="btn-txt button-text">Add Member</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <table class="table align-items-center table-flush mydata-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col text-center">CNo.</th>
+                            <th class="col">Customer Name</th>
+                            <th class="col">Mobile</th>
+                            <th class="col">Apply Date</th>
+                            <th class="col">Apply By</th>
+                            <th class="col">Amount</th>
+                            <th class="col text-center">Status</th>
+                            <th class="col action_col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col text-center">Rk-01</td>
+                            <td class="col">Bablu Mishra</td>
+                            <td class="col">6263626505</td>
+                            <td class="col"><small>23-05-2021 10:30 am</small></td>
+                            <td class="col">Self</td>
+                            <td class="col text-right"><i class="mdi mdi-currency-inr mr-1"></i>1500.00</td>
+                            <td class="col text-center">
+                                <div class="badge bg-warning text-white">Pending</div>
+                            </td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#massage_modal" data-toggle="modal"><i class="mdi mdi-message mr-2"></i>Action For Loan</a>
+                                        <a class="dropdown-item" data-target="#view_modal" data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>                                        
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="8">
+                                <div class="no_found">
+                                    <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- View loan apply coustomer Details Popup -->
+ <div class="modal upload-filemodel fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Apply Loan Coustomer Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body p-0 bg-secondary">
+                <div class="card-body apic-lb-form-box">
+                    <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                        <tbody>
+                            <tr>
+                                <td><b>Coustomer No. :</b></td>
+                                <td>Rk-01</td>
+                            </tr>
+                            <tr>
+                                <td><b>Coustomer Name :</b></td>
+                                <td>Bablu Mishra</td>
+                            </tr>
+                            <tr>
+                                <td><b>Mobile :</b></td>
+                                <td>6263626505</td>
+                            </tr>
+                            <tr>
+                                <td><b>Apply Date :</b></td>
+                                <td>12-09-2021 04:30 am</td>
+                            </tr>
+                            <tr>
+                                <td><b>Apply By :</b></td>
+                                <td>Self</td>
+                            </tr>
+                            <tr>
+                                <td><b>Apply Amount :</b></td>
+                                <td><i class="mdi mdi-currency-inr mr-1"></i>10,000.00</td>
+                            </tr>
+                            <tr>
+                                <td><b>Status :</b></td>
+                                <td>
+                                    <div class="badge bg-warning text-white">Pending</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Previous Loan Amount :</b></td>
+                                <td>
+                                    <i class="mdi mdi-currency-inr"></i>10,000.00                               
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Total Paid Amount :</b></td>
+                                <td>
+                                    <i class="mdi mdi-currency-inr"></i>8,200.00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Total Pending Amount :</b></td>
+                                <td><i class="mdi mdi-currency-inr"></i>1800.00</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address :</b></td>
+                                <td>Home no. 72, bajrang nagar jabalpur </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Action for loan apply -->
+<div class="modal upload-filemodel fade" id="massage_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Massage For Applier</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body p-0 bg-secondary">
+                <div class="card-body apic-lb-form-box">
+                    <form>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Loan Status</mat-label>
+                            <mat-select matNativeControl appearance="outline">
+                                <mat-option value="pending">Pending</mat-option>
+                                <mat-option value="approved">Approved</mat-option>
+                                <mat-option value="cancelled">Cancelled</mat-option>
+                                <mat-option value="Others Reasons">Others Reasons</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="form-group">
+                            <!-- <label  class="mb-0"><small>Loan Status </small></label>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Branch Name </mat-label>
+                                <input matInput required />
+                            </mat-form-field> -->
+                            
+                            <!-- <select class="form-control">
+                              <option value="pending">Pending</option>
+                              <option value="approved">Approved</option>
+                              <option value="approved">Cancelled</option>
+                              <option value="approved">Others Reasons</option>
+                            </select> -->
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0"><small>Message For Loan</small></label>
+                            <div class="input-group login-txtbox">
+                                <textarea rows="3" class="form-control" placeholder="Enter Massage"></textarea>
+                            </div>
+                        </div>
+                        <div class="login-btnblock text-center">
+                            <button data-dismiss="modal" class="btn btn-primary" (click)="submitMessage()">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

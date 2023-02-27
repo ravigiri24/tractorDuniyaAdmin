@@ -1,0 +1,44 @@
+<router-outlet></router-outlet>
+
+<div *ngIf="shownotification">
+    <div class="overlay_show"></div>
+    
+<div class="bottom_append bottom_append_show">
+    <h3 class="popup_close" (click)="closeBottompopup()">X</h3>
+    <div class="card-body apic-lb-form-box pb-0">
+        <h3 class="signup_head">New Request For Guest</h3>
+        <div class="order_details">
+            <div class="row">
+                <div class="col-xs-4"><b>Guest</b></div>
+                <div class="col-xs-8">: {{orders_details.member_detail.member_fname}} - <small>{{orders_details.member_detail.member_mobile}}</small></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4"><b>Table</b></div>
+                <div class="col-xs-8">:{{orders_details.table_no}}</div>
+            </div>
+        </div>
+        <div class="guest_nnotification">
+            <div *ngFor="let item of orders_details.order_detail" class="pos_order_row">
+                <div class="item_block">
+                    <small>Items</small>
+                    <p>{{item.prd_title}}-{{item.prd_salesprice}}-{{item.prd_qty}}</p>
+                </div>
+                <div class="item_qty">
+                    <small>Qty</small>
+                    <h3>{{item.prd_qty}}</h3>
+                </div>
+                <div class="item_amt">
+                    <small>Amt</small>
+                    <h3>{{item.prd_salesprice}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="login-btnblock">
+            <button class="btn btn-block btn-primary mt-3 mb-2" (click)="gotopos()">
+                 Go to Pos
+              </button>
+        </div>
+    </div>
+</div>
+
+</div>

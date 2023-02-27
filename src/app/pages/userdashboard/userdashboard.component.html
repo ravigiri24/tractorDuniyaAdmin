@@ -1,0 +1,429 @@
+<div class="innerdashboard_content">
+    <div class="row">
+        <div class="col-xl-12">
+            <h1 class="main-title">Welcome {{profileName}}!</h1>
+        </div>
+    </div>
+    <div class="row inner-section">
+        <div class="col-xl-10 left_data">
+            <div class="card shadow table-card dashbaord_tableblock">
+                <div class="card-header border-0">
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <h3 class="mb-0">Application Dependancy Mapping </h3>
+                        </div>
+                        <!-- <div class="col text-right">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-light btn-filter dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter By </button>
+                                <a href="#!" class="btn btn-sm btn-outline-light btn-filter" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: block;">
+                                    {{ this.main_filter }}
+                                    <i class="mdi mdi-tune"></i>
+                                    </a>
+                                <div class="dropdown-menu dropdown-primary top_filterddl" (click)="onFilterButtonClick($event)">
+                                    <a class="dropdown-item active" (click)="filter('')">Total Unique Flows</a>
+                                    <a class="dropdown-item" (click) = "filter(2)">Unique Flow</a>
+                                    <a class="dropdown-item" (click)="filter(1)">New Flows</a>
+                                    <a class="dropdown-item" (click)="filter(0)">Absent Flows</a>
+                                </div>
+                            </div>
+
+                        </div> -->
+                        <!-- <div class="col text-right">
+                            <a href="#!" data-target="#tenants-modal" data-toggle="modal" class="btn btn-sm btn-primary">Push Selected Filter to APIC</a>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="card-header border-0 subfilter_row">
+                    <div class="filter_block">
+                        <div class="filter_headwithcol">
+                            <div class="heading_filter">EPG - 1 :</div>
+                            <div class="dropdown">
+                                <a href="#!" class="btn btn-sm btn-outline-light btn-filter " id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: block;">
+                                    {{ this.source_epg }}
+                                    <i class="mdi mdi-tune"></i>
+                                    </a>
+                                <div class="dropdown-menu dropdown-primary top_filterddl" (click)="onFilterButtonClick($event)">
+                                    <a *ngFor="let record of localEPGsList; let i = index" class="dropdown-item" (click)="filterSourceEPG(record.name); searchFilters()">{{record.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter_headwithcol">
+                            <div class="heading_filter">EPG - 2 :</div>
+                            <div class="dropdown">
+                                <a href="#!" class="btn btn-sm btn-outline-light btn-filter" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: block;">
+                                    {{ this.dest_epg }}
+                                    <i class="mdi mdi-tune"></i>
+                                    </a>
+                                <div class="dropdown-menu dropdown-primary top_filterddl" (click)="onFilterButtonClick($event)">
+                                    <a *ngFor="let record of localEPGsList; let i = index" class="dropdown-item" (click)="filterDestEPG(record.name); searchFilters()">{{record.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <a href="#!" (click)="initialize();" data-target="#tenants-modal" data-toggle="modal" class="btn btn-sm btn-primary">Push Filter to APIC</a>
+                            <a href="#!" (click)="resetFilters();" class="btn btn-sm btn-primary">Reset</a>
+                            <!-- <a href="#!" (click)="searchFilters()" class="btn btn-sm btn-primary">Search Filter</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="viewrecord" class="table align-items-center table-flush dashboard_table">
+                        <thead class="thead-light">
+                            <tr>
+                                <!-- <th>
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id="check_list_all" type="checkbox">
+                                        <label class="custom-control-label" for="check_list_all">
+                                        </label>
+                                    </div>
+                                </th> -->
+                                <!-- <th scope="col">Select All</th> -->
+                                <th scope="col">Protocol</th>
+                                <th scope="col">Source IP</th>
+                                <th scope="col">Source Port</th>
+                                <th scope="col">Source EPG</th>
+                                <th scope="col">Dest IP</th>
+                                <th scope="col">Dest Port</th>
+                                <th scope="col">Dest EPG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr matTooltip="New Flows" matTooltipPosition="before" *ngFor="let (record.isNewDupMiss == 1) of admItemsList; let i = index" [ngStyle]="{'background': (record.isNewDupMiss == 1) ? '#EEF5F6' : (record.isNewDupMiss == 0) ? '#F1DFDF' : 'white'}"> -->
+                            <!-- <tr *ngFor="let record of admItemsList; let i = index" [disabled]="record.isNewDupMiss == 0 ? 'true' : 'false'" [matTooltip]="record.isNewDupMiss == 1 ? 'New Flow' : record.isNewDupMiss == 0 ? 'Absent Flow' : 'Unique Flow'" matTooltipPosition="before" [ngClass]="{ 'row_newflow': record.isNewDupMiss == 1 ? 'row_absentflow': record.isNewDupMiss == 0 }" [ngStyle]="{'background': (record.isNewDupMiss == 1) ? '#EEF5F6' : (record.isNewDupMiss == 0) ? '#F1DFDF' : 'white'}"> -->
+                            <tr *ngFor="let record of admItemsList; let i = index" [matTooltip]="record.isNewDupMiss == 1 ? 'New Flow' : record.isNewDupMiss == 0 ? 'Absent Flow' : 'Unique Flow'" matTooltipPosition="before" [ngStyle]="{'background': (record.isNewDupMiss == 1) ? '#EEF5F6' : (record.isNewDupMiss == 0) ? '#F1DFDF' : 'white'}">
+                                <!-- <th scope="row">
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input [disabled]="record.isNewDupMiss == 0 ? true : false" class="custom-control-input" id="check_list{{i}}" type="checkbox"
+                                        (change)="updateItem($event, record)" value="{{record.id}}">
+                                        <label class="custom-control-label" for="check_list{{i}}">
+                                    </label>
+                                    </div>
+                                </th> -->
+                                <td>
+                                    <span>{{ record.protocol}}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.saddr }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.sport }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.sepg}}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.daddr }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.dport }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.depg }}</span>
+                                </td>
+                            </tr>
+
+                            <!-- <tr *ngFor="let record of admItemsList; let i = index" *ngIf="(record.isNewDupMiss == 0)" matTooltip="Absent Flows" matTooltipPosition="above">
+                                <th scope="row">
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id="check_list{{i}}" type="checkbox" disabled>
+                                        <label class="custom-control-label" for="check_list{{i}}">
+                                    </label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <span>{{ record.protocol}}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.saddr }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.sport }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.sepg}}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.daddr }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.dport }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ record.depg }}</span>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 pl-0 fixed_right">
+            <div class="card shadow">
+                <ul class="list-unstyled brics-counter-ul" (click)="onFilterRightClick($event)">
+                    <li (click)="filter('');">
+                        <a class="a_class click_class rightab_active">
+                            <div class="text-muted">Total Unique Flows</div>
+                            <h2>{{admItemsList.length}}</h2>
+                        </a>
+                    </li>
+                    <li (click)="filter(1);">
+                        <a class="a_class click_class">
+                            <div class="text-muted">New flows since last sync</div>
+                            <h2>{{newAdmItemsList.length}}</h2>
+                        </a>
+                    </li>
+                    <li (click)="filter(0);">
+                        <a class="a_class click_class">
+                            <div class="text-muted">Absent flows since last sync</div>
+                            <h2>{{missAdmItemsList.length}}</h2>
+                        </a>
+                    </li>
+                    <li class="a_class">
+                        <div class="text-muted">Last uploaded date</div>
+                        <!-- <h3>{{lastUploadData | date: 'dd/MM/yyyy hh:mm:ss'}}</h3> -->
+                        <h3>{{lastUploadData}}</h3>
+                        <div id="btnuploadnetflow" data-target="#upload-modal" data-toggle="modal" class="sync-btn btn btn-sm btn-primary"><i class="mdi mdi-upload"></i>Upload new data
+                        </div>
+                    </li>
+                    <li class="border-0 a_class">
+                        <div class="text-muted">Last APIC sync date</div>
+                        <h3>{{lastAPICSyncdata}}</h3>
+                        <!-- <div (click)="getTenantsData()" class="sync-btn btn btn-sm btn-primary">
+                        <i
+                            class="mdi mdi-sync">
+                        </i>
+                            Sync with APIC?
+                    </div> -->
+
+                        <button (click)="syncAPICData()" [disabled]="apic_syncing" class="sync-btn btn btn-sm btn-primary">
+                        <span *ngIf="apic_syncing" class="spinner-border spinner-border-sm mr-1"></span>
+                        <i
+                            class="mdi mdi-sync">
+                        </i>
+                        Sync with APIC?
+                    </button>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal upload-filemodel fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+                <!-- <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body p-0">
+                <div class="card bg-secondary border-0 mb-0">
+                    <div class="card-header bg-transparent pb-3 pt-3">
+                        <div class="text-black text-center">
+                            <h1 class="mb-0">Upload Netflow</h1>
+                        </div>
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <form role="form">
+                            <div class="custom-file">
+                                <!-- <input type="file" class="custom-file-input file-input" id="customFileLang" lang="en">
+                                <label class="custom-file-label" for="customFileLang">Select file</label> -->
+                                <!-- <input type="file" #csvReader class="custom-file-input file-input" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" /> -->
+                                <input type="file" #csvReader class="custom-file-input file-input" id="txtFileUpload" multiple="false" (change)="fileChooseListener($event)" accept=".csv,.xlsx" />
+                                <label class="custom-file-label" for="txtFileUpload">{{fileName}}</label>
+                            </div>
+
+
+                            <div class="text-center text-muted my-2" style="display: none;">
+                                <!-- <small>Please upload file with .csv extension</small> -->
+                                <small>OR</small>
+                            </div>
+
+                            <div class="custom-file" style="display: none;">
+                                <!-- <input type="file" class="custom-file-input file-input" id="customFileLang" lang="en">
+                                <label class="custom-file-label" for="customFileLang">Select file</label> -->
+
+                                <input type="file" class="custom-file-input file-input" (change)="onFileChange($event)" id="txtFileUploadXl" multiple="false" accept=".xlsx" />
+                                <label class="custom-file-label" for="txtFileUploadXl">{{fileName}}</label>
+                            </div>
+
+
+                            <div class="text-center mt-3">
+                                <!-- <button type="button" class="uploadbtn btn btn-primary my-4"><i class="mdi mdi-upload"></i>Upload File</button> -->
+
+                                <button (click)="uploadData()" [disabled]="uploading" class="uploadbtn btn btn-primary my-4">
+
+                                    <span *ngIf="uploading" class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+
+                                    <i class="mdi mdi-upload"></i>Upload File
+                                </button>
+
+                            </div>
+                            <div class="text-center mt-1">
+                                <small class="notes text-center col-sm-12">{{uploadProgress}}</small>
+                            </div>
+                            <div class="text-center">
+                                <button (click)="next()" type="button" class="uploadbtn btn btn-primary mt-4"><i
+                                        class="mdi mdi-cloud-upload"></i>Finish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal upload-filemodel fade" id="tenants-modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-push-selection" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" #closebutton_tenants class="close" data-dismiss="modal">&times;</button>
+                <!-- <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body p-0">
+                <div class="card bg-secondary border-0 mb-0">
+                    <div class="card-header bg-transparent pb-3 pt-3">
+                        <div class="text-black text-center">
+                            <h1 class="mb-0">Push Selected Filters</h1>
+                        </div>
+                    </div>
+                    <div class="card-body px-lg-3 py-lg-4">
+                        <form role="form">
+                            <div class="text-black text-center">
+                                <h4 class="mb-0">{{selectTenant}}</h4>
+                            </div>
+                            <!-- <select class="form-control multiselect" data-toggle="select" multiple data-placeholder="Select multiple options">
+                                <option>Alerts</option>
+                                <option>Badges</option>
+                                <option>Buttons</option>
+                                <option>Cards</option>
+                                <option>Forms</option>
+                                <option>Modals</option>
+                            </select> -->
+                            <!-- <ui-select ng-model="ctrl.address.selected" theme="bootstrap" ng-disabled="ctrl.disabled" reset-search-input="false" style="width: 600px;" title="Choose an address">
+                                <ui-select-match placeholder="Enter an address...">{{$select.selected.formatted_address}}</ui-select-match>
+                                <ui-select-choices repeat="address in ctrl.addresses track by $index" refresh="ctrl.refreshAddresses($select.search)" refresh-delay="0">
+                                    <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select> -->
+                            <div class="tenant_container">
+                                <div class="custom-control custom-control-alternative custom-checkbox" *ngFor="let record of localTenantsList; let i = index">
+                                    <input class="custom-control-input" id="customcheck{{i}}" type="checkbox" value={{record.dn}} (change)="onItemChange($event.target.value)">
+                                    <label class="custom-control-label" for="customcheck{{i}}">{{record.name}}</label>
+                                </div>
+                            </div>
+                            <!-- <div class="tenant_container">
+                                <div class="custom-control custom-radio mb-3" *ngFor="let record of localTenantsList; let i = index">
+                                    <input name="custom-radio" class="custom-control-input" id="customRadio{{i}}" type="radio" value={{record.dn}} (change)="onItemChange($event.target.value)">
+                                    <label class="custom-control-label" for="customRadio{{i}}">{{record.name}}</label>
+                                </div>
+                            </div> -->
+                            <!-- <div class="text-black text-center"> 
+                               Name :  <input type="text" class="mb-0" value="{{createFilterName}}">
+                            </div> -->
+                            <div class="table-responsive">
+                                <table id="filtersrecord" class="table align-items-center table-flush push_sel_table">
+                                    <thead class="thead-light ">
+                                        <tr>
+                                            <th scope="col" class="checkcol">
+                                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                                    <input class="custom-control-input" id="filter_listmain" type="checkbox" [(ngModel)]="masterSelected" name="list_name" (change)="checkUncheckAll()">
+                                                    <label class="custom-control-label" for="filter_listmain">
+                                                </label>
+                                                </div>
+                                            </th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Ethertype</th>
+                                            <th scope="col">Protocol</th>
+                                            <th scope="col">
+                                                <div class="with_fromto">
+                                                    <div class="with_maintitle">Source Port</div>
+                                                    <div class="subutitle from">From</div>
+                                                    <div class="subutitle to">To</div>
+                                                </div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="with_fromto">
+                                                    <div class="with_maintitle">Dest Port</div>
+                                                    <div class="subutitle from">From</div>
+                                                    <div class="subutitle to">To</div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let record of pushFiltersList; let i = index">
+                                            <td scope="row">
+                                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                                    <input class="custom-control-input" id="filter_list{{i}}" type="checkbox" [(ngModel)]="record.isSelected" name="list_name" value="{{record.id}}" (change)="isAllSelected()">
+                                                    <label class="custom-control-label" for="filter_list{{i}}"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="basic_txt" value="{{record.filtername}}">
+                                            </td>
+                                            <td>
+                                                <span>{{ record.ethertype}}</span>
+                                            </td>
+                                            <td>
+                                                <span>{{ record.protocol}}</span>
+                                            </td>
+                                            <td>
+                                                <!-- <div class="row"></div> -->
+                                                <input type="text" class="basic_txt from_txt" value="{{record.sport}}">
+                                                <input type="text" class="basic_txt to_txt" value="{{record.sport}}">
+                                                <!-- <span>{{ record.sport }}</span> -->
+                                            </td>
+                                            <td>
+                                                <input type="text" class="basic_txt from_txt" value="{{record.dport}}">
+                                                <input type="text" class="basic_txt to_txt" value="{{record.dport}}">
+                                                <!-- <span>{{ record.dport }}</span> -->
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <!-- filters end -->
+
+
+                            <div class="text-center">
+                                <button (click)="pushSelectedFilterAPIC()" type="button" class="uploadbtn btn btn-primary mt-4"><i
+                                        class="mdi mdi-cloud-upload"></i>Push</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="apic_sync_success" class="alert_popup alert alert-success alert_show" role="alert" id="success_popup">
+    <strong>Success!</strong> Synced Successfully!
+</div>
+<!-- <div *ngIf="apic_settings_success" class="alert_popup alert alert-success alert_show" role="alert" id="success_popup">
+    <strong>Success!</strong> APIC settings updated successfully.
+</div> -->
+
+<div *ngIf="apic_sync_fail" class="alert_popup alert alert-warning alert_show" role="alert" id="warning_popup">
+    <strong>Could not sync!</strong> Please check APIC IP and credentials or check the connectivity.
+</div>
+
+
+<div *ngIf="push_filter_success" class="alert_popup alert alert-success alert_show" role="alert" id="success_popup">
+    <strong>Success!</strong> Filters pushed successfully!
+</div>
+
+<div *ngIf="push_filter_fail" class="alert_popup alert alert-warning alert_show" role="alert" id="warning_popup">
+    <strong>Could not push!</strong> Please check APIC IP and credentials or check the connectivity.
+</div>

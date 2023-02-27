@@ -1,0 +1,56 @@
+<div class="main-content-without-nav">
+    <div class="container pb-1 ">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="login-form-box">
+                    <div class="card-header text-center bg-transparent pb-3 border-0 zoom">
+                        <img [src]="api.project.logo" class="login_logo fade_animation" />
+                        <!-- <a href="tel:+1-800-555-1234">call this number</a> -->
+                        <!-- <a href="https://api.whatsapp.com/send?phone=50600000000">Click to connect +506 0000 0000</a> -->
+                
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-2 pt-0 card-bootom-0 bottom" *ngIf="showlogo">
+                        <form [formGroup]="loginForm">
+                            <div class="form-group">
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-qrcode-scan"></i></span>
+                                    </div>
+                                    <input type="text" formControlName="staff_rfid" placeholder="Enter RFID Here" class="form-control" />
+                                </div>
+                            </div>
+                            <h2 class="text-center mb-lg-4">Or</h2>
+                            <div class="form-group">
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                                    </div>
+                                    <input type="text" placeholder="Your Username" formControlName="staff_user" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-key"></i></span>
+                                    </div>
+                                    <input autocomplete="off" type="password" placeholder="Your Password" name="staff_password" formControlName="staff_password" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button class="btn btn-primary mt-3 mb-2" (click)="check_authorizartion()">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="text-center form-group pr-4 mt-1 bottom" *ngIf="showlogo">
+                        <a routerLink="/forgot" class="text-gray"><small>Forgot password?</small></a><br>
+                        <a class="text-gray"><small>v 1.0.4</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

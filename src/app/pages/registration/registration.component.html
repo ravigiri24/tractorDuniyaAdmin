@@ -1,0 +1,83 @@
+<section class="main-content-without-nav">
+    <div class="container pb-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="login-form-box">
+                    <div class="card-header text-center bg-transparent pb-3 border-0">
+                        <img src="./assets/imgs/adm-logo.png" class="login_logo" />
+                        <h2 class="login-txt">Signup</h2>
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-5 card-top-0 card-bootom-0">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <div class="login-input-label">Full Name</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-account"></i></span>
+                                    </div>
+                                    <input type="text" placeholder="Enter Full Name" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="login-input-label">Email</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni mdi mdi-email-alert"></i></span>
+                                    </div>
+                                    <input type="text" placeholder="Enter Email Address" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email Address is required</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="login-input-label">Password</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open mdi mdi-key"></i></span>
+                                    </div>
+                                    <input type="password" placeholder="Enter Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="login-input-label">Company Name</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-office-building"></i></span>
+                                    </div>
+                                    <input type="text" placeholder="Enter Company Name" formControlName="companyname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.companyname.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.companyname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.companyname.errors.required">Compnay Name is required</div>
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button class="btn btn-primary mt-3 mb-2">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Register
+                            </button>
+                            </div>
+                        </form>
+                        <div class="text-small mb-3">By clicking "Register" you agree to our <a href="#" class="text-black">Terms Of Services</a> and <a href="#" class="text-black">Privacy Policy</a></div>
+                        <h4 class="switch_txt">Already have an account? <span class="text-red" style="cursor: pointer;" routerLink="/">Login</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="success_register" class="alert_popup alert alert-success alert_show" role="alert" id="success_popup">
+        <strong>Success!</strong> Registration Done Successfully!
+    </div>
+
+    <div *ngIf="invalid_register" class="alert_popup alert alert-warning alert_show" role="alert" id="warning_popup">
+        <strong>Error!</strong> Email Already Registered.
+    </div>
+</section>

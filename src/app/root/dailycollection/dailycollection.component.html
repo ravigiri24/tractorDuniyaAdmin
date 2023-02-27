@@ -1,0 +1,262 @@
+<div class="list-containner">
+    <div class="row">
+        <div class="col-xl-12 mb-xl-0">
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-3 pl-1">
+                            <h3 class="mb-0">Collection List</h3>
+                        </div>
+                        <div class="col p-0 head_details">
+                            <div class="total_block bg-primary mr-2"><span>Available Amount</span><b>5,30,100.00</b>
+                            </div>
+                            <div class="total_block bg-success"><span>Total Customer</span><b>150</b></div>
+                        </div>
+                        <div class="col text-right pr-1">
+                            <div class="listsearch-topblock mr-0">
+                                <div class="search-box">
+                                    <input type="search" placeholder="Search" class="searchtxt" />
+                                    <i class="mdi mdi-magnify"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table align-items-center table-flush mydata-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col">Customer No.</th>
+                            <th class="col text-center">Image</th>
+                            <th class="col">Name</th>
+                            <th class="col">Mobile</th>
+                            <th class="col">Assign</th>
+                            <th class="col">Available Amt</th>
+                            <th class="col text-center">Status</th>
+                            <th class="col action_col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col">RK-Cus101</td>
+                            <td class="col">
+                                <div class="list_image_block">
+                                    <img src="assets/imgs/default-pic.png" />
+                                </div>
+                            </td>
+                            <td class="col">Sandeep Patel</td>
+                            <td class="col">6263626505</td>
+                            <td class="col">Roshan</td>
+                            <td class="col text-right">12,000.00</td>
+                            <td class="col text-center"><span class="badge bg-success text-white">Active</span></td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#collectionhistory_modal"
+                                            data-toggle="modal">
+                                            <i class="mdi mdi-history mr-2"></i>Collection History</a>
+                                        <a class="dropdown-item" (click)="loanAssignMember(0)"
+                                            data-target="#change_member_modal" data-toggle="modal">
+                                            <i class="mdi mdi-account-check-outline mr-2"></i>Assign Member</a>
+                                        <a class="dropdown-item" (click)="loanAssignMember(1)"
+                                            data-target="#change_member_modal" data-toggle="modal">
+                                            <i class="mdi mdi-account-switch-outline mr-2"></i>Change Member</a>
+                                        <a class="dropdown-item" data-target="#member_view_modal" data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>
+                                        <a class="dropdown-item" data-toggle="modal"
+                                            data-target="#changeloan_status_modal">
+                                            <i class="mdi mdi-account-question-outline mr-2"></i>Change Status</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                <div class="no_found">
+                                    <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- View Loan Details Popup -->
+    <div class="modal upload-filemodel fade" id="member_view_modal" tabindex="-1" role="dialog"
+        aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Customer No. :</b></td>
+                                    <td>Rk-Cus101</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Profile Image :</b></td>
+                                    <td>
+                                        <div class="list_image_block float-left">
+                                            <img src="assets/imgs/default-pic.png">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Customer Name :</b></td>
+                                    <td>Sandeep Kushwaha</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mobile :</b></td>
+                                    <td>6263626505</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aadhar No. :</b></td>
+                                    <td>626362650548</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Assign Member :</b></td>
+                                    <td>Roshan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Available Amount :</b></td>
+                                    <td>72,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status :</b></td>
+                                    <td><span class="badge bg-success text-white">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Address :</b></td>
+                                    <td>Home no. 72, bajrang nagar jabalpur </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Change Member Details Popup -->
+    <div class="modal upload-filemodel fade" id="change_member_modal" tabindex="-1" role="dialog"
+        aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" *ngIf="loanassign_action == 1">Update Collection Member</h4>
+                    <h4 class="modal-title" *ngIf="loanassign_action != 1">Assign Collection Member</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <mat-form-field class="example-full-width mt-3" *ngIf="loanassign_action == 1">
+                            <mat-label>Existing Member</mat-label>
+                            <input matInput required disabled value="Roshan" />
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Allot Members</mat-label>
+                            <mat-select>
+                                <mat-option value="Roshan Kanojiya">Roshan Kanojiya</mat-option>
+                                <mat-option value="Bhaijan">Bhaijan</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="modal-footer text-right">
+                    <button type="button" mat-button mat-stroked-button data-dismiss="modal"><i
+                            class="mdi mdi-close mr-1"></i>Cancel</button>
+                    <button class="submit_btn" *ngIf="loanassign_action != 1" data-dismiss="modal" color="primary"
+                        mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Submit
+                    </button>
+                    <button class="submit_btn" *ngIf="loanassign_action == 1" data-dismiss="modal" color="primary"
+                        mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Change Member Status Popup -->
+    <div class="modal upload-filemodel fade" id="changeloan_status_modal" tabindex="-1" role="dialog"
+        aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Change Member Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">                      
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Change Status</mat-label>
+                            <mat-select>
+                                <mat-option value="Active">Active</mat-option>
+                                <mat-option value="Inactive">Inactive</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <textarea class="textarea_popup" placeholder="Reason"></textarea>
+                    </div>
+                    <div class="modal-footer text-right">
+                        <button type="button" mat-button mat-stroked-button data-dismiss="modal"><i
+                                class="mdi mdi-close mr-1"></i>Cancel</button>
+                        <button class="submit_btn" data-dismiss="modal" color="primary" mat-raised-button>
+                            <i class="mdi mdi-send mr-1"></i>Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instalment History Details Popup -->
+    <div class="modal upload-filemodel fade" id="collectionhistory_modal" tabindex="-1" role="dialog"
+        aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Collection History</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <div class="d-flex title_withbtn">
+                            <h5 class="m-0"><small>Recent 10 Collection Details</small></h5>
+                            <button class="btn btn-sm btn-danger mb-3 pull-right mr-0"><i
+                                    class="mr-2 mdi mdi-cloud-download-outline mr-1"></i>Download</button>
+                        </div>
+                        <div class="instalment_table_block">
+                            <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Receiver</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><small>11-Jun-2021 12:30 am</small></td>
+                                        <td>Roshan</td>
+                                        <td class="text-right">200</td>
+                                    </tr>
+                                    <tr>
+                                        <td><small>12-Jun-2021 02:30 am</small></td>
+                                        <td>Bhaijan</td>
+                                        <td class="text-right">300</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

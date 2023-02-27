@@ -1,0 +1,7 @@
+--kiosk-printing --kiosk  "https://desi-wallet.com/newhotel/"
+
+
+/home/admin/web/desi-wallet.com/public_html/newhotel
+
+
+https://docs.google.com/spreadsheets/d/1-BHuIJpE8xXdKqPMw_3Nay_GYa3ex7UBxsEZ1GG2dPE/edit#gid=0

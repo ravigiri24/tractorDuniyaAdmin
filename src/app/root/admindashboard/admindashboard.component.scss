@@ -1,0 +1,61 @@
+.brics_row {
+    margin: 0px;
+    justify-content: space-between;
+    .tile_stats_count {
+        padding: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        /* color: #ffffff; */
+        width: 24%;
+        background: #ffffff;
+        margin: 0px 0px 20px 0px;
+        box-shadow: 0 2px 2px rgb(204 197 185 / 52%);
+        border-radius: 5px;
+        .count_top {
+            font-size: 14px;
+            text-shadow: 1px 1px #00000078;
+            text-shadow: 1px 1px #ffffff78;
+            i {
+                position: absolute;
+                right: 15px;
+                font-size: 45px;
+                top: 10px;
+            }
+        }
+        .count {
+            font-size: 18px;
+            line-height: 40px;
+            font-weight: 500;
+        }
+    }
+    .blue_tiles{
+        border-bottom: solid 4px #07d;
+        border-top: solid 4px #07d;
+        i{
+            color: #07d;
+        }
+    }
+    .orange_tiles{
+        border-bottom: solid 4px #FF5722;
+        border-top: solid 4px #FF5722;
+        i{
+            color: #FF5722;
+        }
+    }
+    .purple_tiles{
+        border-bottom: solid 4px #980dba;
+        border-top: solid 4px #980dba;
+        i{
+            color: #980dba;
+        }
+    }
+    .green_tiles{
+        border-bottom: solid 4px #4CAF50;
+        border-top: solid 4px #4CAF50;
+        i{
+            color: #4CAF50;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+<section class="main-content-without-nav">
+    <!-- <div class="header bg-gradient-primary py-5 py-lg-7">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+            </div>
+        </div>
+        <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+        </div>
+    </div> -->
+    <div class="container pb-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+                <!-- <div class="card bg-secondary shadow border-0"> -->
+                <div class="login-form-box">
+                    <div class="card-header text-center bg-transparent pb-3 border-0">
+                        <img [src]="api.project.logo" class="login_logo" />
+                        <h1 class="text-black text-center mb-0">Dont Worry!</h1>
+                        <div class="text-muted text-center">Give Your Email ID</div>
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-2 pt-0 card-bootom-0">
+                        <form>
+                            <div class="form-group">
+                                <div class="login-input-label">E-Mail</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83 mdi mdi-email-alert"></i></span>
+                                    </div>
+                                    <input type="text" placeholder="Enter E-Mail" formControlName="email" class="form-control" />
+                                </div>
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">email is required</div>
+                                </div>
+                            </div>
+                            <div class="login-btnblock">
+                                <button routerLink="/" class="btn btn-outline-primary btn-rounded mt-3 mb-2">                                    
+                                    Back
+                                </button>
+                                <button class="btn btn-block btn-primary mt-3 mb-2">
+                                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                  Submit
+                                  <!-- Send Password Reset Link -->
+                              </button>
+                                <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <div class="text-center form-group">
+                        <a routerLink="/" class="text-black"><small>Login</small></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="invalid_forgot" class="alert_popup alert alert-warning alert_show" role="alert" id="warning_popup">
+        <strong>Invalid EmailID!</strong> Please enter valid email id.
+    </div>
+    <div *ngIf="success_forgot" class="alert_popup alert alert-success alert_show" role="alert" id="success_popup">
+        <strong>Success!</strong> Reset Password Link Send Successfully!
+    </div>
+</section>

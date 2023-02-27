@@ -1,0 +1,46 @@
+   { path: 'tablebooking', component: NewposbillingComponent },
+      { path: 'changepassword', component: ChangepasswordComponent },
+      { path: 'proiledetails', component: UserprofileComponent },
+
+  
+
+
+ 
+
+
+
+
+  
+
+
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgot', component: ForgotComponent },
+  { path: 'qrscan/:id', component: QrComponent },
+
+  // { path: 'qrscan/:id', component: QrComponent },
+  //{ path: 'qrscan/:id', redirectTo: 'qrscan1/:id', pathMatch: 'full' },
+
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'kotlist', component: KotlistComponent },
+  { path: 'billslist', component: BillslistComponent },
+  { path: 'billing', component: BillingComponent },
+  { path: 'recharge', component: RechargeComponent },
+  { path: 'memberlist', component: MemberlistComponent },
+  { path: 'transactionlist', component: TransactionlistComponent },
+
+  { path: 'posbilling', component: PosbillingComponent },
+
+  { path: 'rooms', component: RoomsComponent },
+
+
+
+
+
+  { path: 'stafflogin', component: StaffloginComponent },
+
+
+  { path: 'reports', component: ReportsComponent },
+
+
+

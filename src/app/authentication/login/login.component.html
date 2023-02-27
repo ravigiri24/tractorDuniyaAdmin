@@ -1,0 +1,70 @@
+<div class="main-content-without-nav">
+    <div class="container pb-1 ">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="login-form-box">
+                    <div class="card-header text-center bg-transparent pb-3 border-0 zoom">
+                        <img src="../assets/imgs/tractorLogo.jpg" class="login_logo fade_animation" />
+                    </div>
+                    <div class="card-body px-lg-5 py-lg-2 pt-0 card-bootom-0 bottom" *ngIf="showlogo">
+                        <form [formGroup]="loginForm">
+                            <div class="form-group">
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                                    </div>
+                                    <input type="text" required placeholder="Enter Username" formControlName="userId"
+                                        class="form-control" autocomplete="new-password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-key"></i></span>
+                                    </div>
+                                    <input required autocomplete="new-password" type="password" placeholder="Enter Password"
+                                        name="staff_password" formControlName="password" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center mt-5">
+                                <button class="btn btn-block btn-theme-color"  (click)="check_authorizartion()">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Login To New
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <div class="text-center form-group pr-4 mt-1 bottom" *ngIf="showlogo">
+                        <a routerLink="/forgot" class="text-gray"><small>Forgot password?</small></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Subscription Popup -->
+    <!-- <div class="popup_overlay_container" *ngIf="subscription_popup">
+        <div class="popup_overlay" (click)="closeSubscription()"></div>
+        <div class="{{subscriptionClass}}">
+            <span class="close_icon" (click)="closeSubscription()">
+                <img src="assets/imgs/close-icon.svg">
+            </span>
+            <div class="subscription_header">
+                <img src="assets/imgs/subscription-img.png" />
+            </div>
+            <div class="popup_inner_section">
+                <h3><b>Subscription Details</b><span>: {{subscription_detail.access_msg}}</span></h3>
+                <h3><b>Subscription Date</b><span>: {{subscription_detail.date_of_subscription}}</span></h3>
+                <h3><b>Subscription Type</b><span>: {{subscription_detail.type}}</span></h3>
+                <h3><b>Start Date</b><span>: {{subscription_detail.start_date_subscription}}</span></h3>
+                <h3><b>Subscription Days</b><span>: {{subscription_detail.valid_days}}</span></h3>
+                <div class="contact_admin">
+                    <h5>Please contact the admin or administrative</h5>
+                    <div class="inner_div">
+                        <a href="mailto:admin@desiwallet.com"><i class="mdi mdi-mail"></i>admin@desiwallet.com</a>
+                        <a href="tel:6263626505"><i class="mdi mdi-phone"></i>+91 6263626505</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

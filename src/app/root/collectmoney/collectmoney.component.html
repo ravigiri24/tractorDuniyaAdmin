@@ -1,0 +1,209 @@
+<div class="list-containner">
+    <div class="row">
+        <div class="col-xl-12 mb-xl-0">
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-4 pl-1">
+                            <h3 class="mb-0">Collect Money List</h3>
+                        </div>
+                        <div class="col text-right pr-1 datewith_search_block">
+                            <div class="list_calender_filter">
+                                <label>Select Date :</label>
+                                <input type="date" placeholder="Select date" class="form-control" />
+                            </div>
+                            <div class="listsearch-topblock search_withaddbtn pr-0">
+                                <div class="search-box">
+                                    <input type="search" placeholder="Search" class="searchtxt" />
+                                    <i class="mdi mdi-magnify"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table align-items-center table-flush mydata-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col">Member Name</th>
+                            <th class="col">Collect Date</th>
+                            <th class="col">Customer Meet</th>
+                            <th class="col">Collect Amount</th>
+                            <th class="col text-center">Receive Status</th>
+                            <th class="col action_col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col">Bhaijan</td>
+                            <td class="col">12-Mar-2021</td>
+                            <td class="col">10 Customer</td>
+                            <td class="col text-right">5000.00</td>
+                            <td class="col text-center"><span class="badge bg-warning text-white">Working</span></td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#view_modal" data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>
+                                        <a class="dropdown-item" data-target="#status_modal" data-toggle="modal">
+                                            <i class="mdi mdi-cash-100 mr-2"></i>Change Status</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col">Roshan Kanojiya</td>
+                            <td class="col">12-Mar-2021</td>
+                            <td class="col">20 Customer</td>
+                            <td class="col text-right">3200.00</td>
+                            <td class="col text-center"><span class="badge bg-success text-white">Received</span></td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#view_modal" data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>
+                                        <a class="dropdown-item" data-target="#status_modal" data-toggle="modal">
+                                            <i class="mdi mdi-cash-100 mr-2"></i>Change Status</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                <div class="no_found">
+                                    <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- View Offers / Schems Details Popup -->
+    <div class="modal upload-filemodel fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Collection Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Member Name :</b></td>
+                                    <td>Roshan Kanojiya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Collect Date :</b></td>
+                                    <td>12-Mar-2021</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Customer Meet :</b></td>
+                                    <td>20 Customer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Collect Amount :</b></td>
+                                    <td>1500.00</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Receive Status :</b></td>
+                                    <td>1,00,000.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <thead>
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Customer No.</th>
+                                    <th>Time</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Manish Sahu</td>
+                                    <td>Rk-101</td>
+                                    <td><small>11:30 am</small></td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td>Santosh Mahajan</td>
+                                    <td>Rk-102</td>
+                                    <td><small>12:30 am</small></td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td>Vinay Sinha</td>
+                                    <td>Rk-103</td>
+                                    <td><small>01:30 am</small></td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td>Deepak Bajaj</td>
+                                    <td>Rk-104</td>
+                                    <td><small>02:30 am</small></td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td>Santosh</td>
+                                    <td>Rk-101</td>
+                                    <td><small>12:30 am</small></td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Action for loan apply -->
+    <div class="modal upload-filemodel fade" id="status_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <form>
+                            <div class="form-group">
+                                <label class="mb-0"><small>Amount</small></label>
+                                <input class="form-control" disabled type="text" value="1500" placeholder="Amount" />
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0"><small>Collect Money Status</small></label>
+                                <select class="form-control">
+                                    <option value="Working">Working</option>
+                                    <option value="Received">Received</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0"><small>Money Received Details</small></label>
+                                <div class="input-group login-txtbox">
+                                    <textarea rows="3" class="form-control" placeholder="Enter Details"></textarea>
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button data-dismiss="modal" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

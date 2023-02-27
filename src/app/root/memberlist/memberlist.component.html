@@ -1,0 +1,318 @@
+<div class="list-containner">
+    <div class="row">
+        <div class="col-xl-12 mb-xl-0">
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-4 pl-1">
+                            <h3 class="mb-0">Members List</h3>
+                        </div>
+                        <div class="col text-right pr-1">
+                            <div class="listsearch-topblock search_withaddbtn">
+                                <div class="search-box">
+                                    <input type="search" placeholder="Search" class="searchtxt" />
+                                    <i class="mdi mdi-magnify"></i>
+                                </div>
+                                <div class="right_addbtn">
+                                    <button data-toggle="modal" (click)="addMember(1)"
+                                        data-target="#actionMembers_modal" type="button"
+                                        class="btn btn-success btn-sm create_header_btn">
+                                        <i class="mdi mdi-account">
+                                        </i>
+                                        <span class="btn-txt button-text">Add Member</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table align-items-center table-flush mydata-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="col">Member No.</th>
+                            <th class="col text-center">Image</th>
+                            <th class="col">Name</th>
+                            <th class="col">Mobile</th>
+                            <th class="col">Email</th>
+                            <th class="col">Aadhar No.</th>
+                            <th class="col">Join Date</th>
+                            <th class="col text-center">Status</th>
+                            <th class="col action_col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="col">RK-101</td>
+                            <td class="col">
+                                <div class="list_image_block">
+                                    <img src="assets/imgs/default-pic.png" />
+                                </div>
+                            </td>
+                            <td class="col">Roshan Kanojiya</td>
+                            <td class="col">6263626505</td>
+                            <td class="col">roshan@gmail.com</td>
+                            <td class="col">126585965214</td>
+                            <td class="col">12-mar-2021</td>
+                            <td class="col text-center"><span class="badge bg-success text-white">Active</span></td>
+                            <td class="action_col">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light no_before_after" ngbDropdownToggle>
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" data-target="#actionMembers_modal" data-toggle="modal"
+                                            (click)="editDetails(0)">
+                                            <i class="mdi mdi-pencil mr-2"></i>Edit Details</a>
+                                        <a class="dropdown-item" (click)="viewDetails()" data-target="#view_modal"
+                                            data-toggle="modal">
+                                            <i class="mdi mdi-eye mr-2"></i>View Details</a>
+                                        <a class="dropdown-item" data-target="#assign_loan_modal" data-toggle="modal">
+                                            <i class="mdi mdi-account-check-outline mr-2"></i>Assign Loan</a>
+                                        <a class="dropdown-item" (click)="statusActive()">
+                                            <i class="mdi mdi-account-off-outline mr-2"></i>Inactive</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="show_list==1">
+                            <td colspan="9">
+                                <div class="no_found">
+                                    <h1><i class="mdi mdi-alert-outline"></i></h1><b> No record found </b>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- History Details Popup -->
+    <div class="modal upload-filemodel fade" id="assign_loan_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Assign Loan History Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box pt-0">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <mat-form-field class="example-full-width ">
+                                    <mat-label>Not Assign Loan List - 02</mat-label>
+                                    <mat-select>
+                                        <mat-option value="Sanjeev Sahu - 6263626505 - 12-Mar-2021 - 12000 - 200">Sanjeev Sahu - 6263626505 - 12-Mar-2021 - 12000 - 200</mat-option>
+                                        <mat-option value="Sandeep Kanojiya - 6263626505 - 15-Mar-2021 - 12000 - 200">Sandeep Kanojiya - 6263626505 - 12-Mar-2021 - 12000 - 200</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5 class="text-right m-0 pt-3">Total Assign : 02</h5>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <thead>
+                                <tr>
+                                    <th>#Cno.</th>
+                                    <th>Customer Name</th>
+                                    <th>Contact</th>
+                                    <th>Amount</th>
+                                    <th>Pending</th>
+                                    <th>Instalment</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>RK-101</td>
+                                    <td>Sachin Mahra</td>
+                                    <td>6263626505</td>
+                                    <td class="text-right">12000</td>
+                                    <td class="text-right">7000</td>
+                                    <td class="text-right">200</td>
+                                    <td class="text-center"><span class="badge bg-warning text-white">Running</span>
+                                    </td>
+                                    <td class="text-center"><span class="btn btn-sm btn-danger btn_download"><i
+                                                class="mdi mdi-account-off-outline"></i></span></td>
+                                </tr>
+                                <tr>
+                                    <td>RK-103</td>
+                                    <td>Rajesh Sahu</td>
+                                    <td>6263626505</td>
+                                    <td class="text-right">12000</td>
+                                    <td class="text-right">0.00</td>
+                                    <td class="text-right">200</td>
+                                    <td class="text-center"><span class="badge bg-success text-white">Completed</span>
+                                    </td>
+                                    <td class="text-center"><span class="btn btn-sm btn-danger btn_download"><i
+                                                class="mdi mdi-account-off-outline"></i></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- View Member Details Popup -->
+    <div class="modal upload-filemodel fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Member No. :</b></td>
+                                    <td>RK-101</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Profile Image :</b></td>
+                                    <td>
+                                        <div class="list_image_block float-left">
+                                            <img src="assets/imgs/default-pic.png">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Member Name :</b></td>
+                                    <td>{{member_details.member_fname}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Mobile :</b></td>
+                                    <td>{{member_details.member_mobile}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email Id :</b></td>
+                                    <td>sumit@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aadhar No. :</b></td>
+                                    <td>626362650548</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Join Date :</b></td>
+                                    <td>12-Mar-2021</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status :</b></td>
+                                    <td><span class="badge bg-success text-white">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Address :</b></td>
+                                    <td>Home no. 72, bajrang nagar jabalpur </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add / Edit Members Popup -->
+    <div class="modal fade" id="actionMembers_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mb-0" *ngIf="member_action == 1">Add New Members</h5>
+                    <h5 class="modal-title mb-0" *ngIf="member_action != 1">Update Members Details</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form class="create_collection">
+                    <div class="modal-body modal_insert bg-secondary pb-0">
+                        <div class="row">
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Member No.</mat-label>
+                                    <input matInput required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Mobile</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Aadhar No.</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Join Date</mat-label>
+                                    <input type="date" matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Member Login Id</mat-label>
+                                    <input matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input type="password" matInput required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select>
+                                        <mat-option value="Active">Active</mat-option>
+                                        <mat-option value="Inactive">Inactive</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4 col-lg-6 col-xs-12">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput required formControlName="address"></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 col-lg-6 col-xs-12">
+                                <label class="m-0">Member Image</label>
+                                <input type="file" class="file" class="fileupload" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer text-right">
+                    <button type="button" mat-button mat-stroked-button data-dismiss="modal"><i
+                            class="mdi mdi-close mr-1"></i>Cancel</button>
+                    <button class="submit_btn" *ngIf="member_action == 1" data-dismiss="modal" color="primary"
+                        mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Submit
+                    </button>
+                    <button class="submit_btn" *ngIf="member_action != 1" data-dismiss="modal" color="primary"
+                        mat-raised-button>
+                        <i class="mdi mdi-send mr-1"></i>Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

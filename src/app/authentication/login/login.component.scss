@@ -1,0 +1,150 @@
+.text-black {
+  color: #6f6f6f;
+}
+
+.card-bootom-0 {
+  padding-bottom: 0px !important;
+}
+
+.form-control {
+  line-height: 40px;
+  min-height: 45px;
+}
+
+.main-content-without-nav {
+  margin: 0 0 0 0 !important;
+  padding-top: 15px;
+  .login-txt {
+    font-size: 24px;
+    color: #000000;
+  }
+  .login-txtbox {
+    // border: solid thin #cccccc;
+    box-shadow: none;
+    .input-group-text {
+      padding: 5px 10px;
+    }
+  }
+  .login-input-label {
+    color: #666666;
+    margin: 0px 0px 5px 10px;
+    font-size: 12px;
+  }
+  .login_logo {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 150px;
+  }
+  .login-btnblock {
+    .btn {
+      border-radius: 50px;
+      margin-top: 0px !important;
+      display: inline-block;
+    }
+  }
+}
+// popup subscription
+.popup_overlay_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  top: 0px;
+  left: 0px;
+  background: rgb(0 0 0 / 25%);
+  cursor: pointer;
+  background: rgb(61 198 214 / 28%);
+  .popup_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99991;
+    top: 0px;
+    left: 0px;
+  }
+  .subscription_section {
+    width: 600px;
+    background: #ffffff;
+    position: absolute;
+    border-radius: 10px;
+    transition: 0.5s all;
+    z-index: 99999;
+    left: calc(50% - 300px);
+    bottom: -100%;
+    .subscription_header {
+      img {
+        width: 100%;
+      }
+    }
+    .popup_inner_section {
+      padding: 30px;
+      h3 {
+        font-size: 15px;
+        b{
+          min-width: 200px;
+          display: inline-block;
+          font-weight: 500;
+        }
+        span {
+          font-weight: 200;
+        }
+      }
+      .contact_admin {
+        padding: 15px;
+        background: #f5f5ff;
+        border: solid thin #e2e1e1;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 15px;
+        .inner_div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            width: 50%;
+            justify-content: center;
+            color: #666666;
+            i {
+              font-size: 16px;
+              margin-right: 7px;
+          }
+        }
+      }
+      }
+    }
+    .close_icon {
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      z-index: 3;
+      content: "×";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      padding: 5px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 2px 2px rgb(204 197 185 / 50%);
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      img {
+        height: 14px;
+        transition: 0.5s all;
+        opacity: 0.4;
+      }
+    }
+    .close_icon:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+  .subscription_show {
+    bottom: 20px;
+  }
+}

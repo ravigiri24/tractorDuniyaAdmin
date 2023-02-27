@@ -1,0 +1,32 @@
+.status_ddl {
+    font-size: 14px;
+    width: 110px;
+    margin-top: -10px;
+}
+.head_details {
+    display: flex;
+    justify-content: center;
+    .total_block {
+        display: flex;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        align-items: center;
+        float: left;
+        b {
+            margin-left: 5px;
+            border-left: solid thin #ffffff;
+            padding-left: 5px;
+            line-height: 14px;
+        }
+    }
+}
+.instalment_table_block{
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+}
+.title_withbtn{
+    justify-content: space-between;
+}

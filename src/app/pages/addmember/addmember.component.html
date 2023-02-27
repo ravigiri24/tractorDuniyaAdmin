@@ -1,0 +1,358 @@
+<div class="create-containner">
+    <div class="row">
+        <div class="col-xl-12 mb-xl-0">
+            <div class="card shadow dash-cardbox">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-7">
+                            <h3 class="mb-0">Manage Members</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body apic-lb-form-box">
+                    <form [formGroup]="addMemberForm">
+                        <div class="create_form">
+                            <div class="row">
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Member name</div>
+                                        <div class="input-group login-txtbox">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                                            </div>
+                                            <input type="text" placeholder="Enter Name" formControlName="fName" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Mobile No.</div>
+                                        <div class="input-group login-txtbox">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-phone"></i></span>
+                                            </div>
+                                            <input type="text" placeholder="Enter mobile no." formControlName="mobile" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Email Id</div>
+                                        <div class="input-group login-txtbox">
+                                            <!-- <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-mail"></i></span>
+                                            </div> -->
+                                            <input type="email" placeholder="Enter email id" formControlName="email" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Birth Date</div>
+                                        <div class="input-group login-txtbox">
+                                            <!-- <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                            </div> -->
+                                            <input class="form-control" type="date" [value]="edit_member.member_dob" formControlName="dob" placeholder="Select date" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Gender</div>
+                                        <select class="form-control" formControlName="gender">
+                                    <option [value]="edit_member.reference_gender">Male</option>
+                                    <option value="Male">Female</option>
+                                    <option value="Male">Other</option>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Reference Name</div>
+                                        <select class="form-control" formControlName="ref_Id">
+                                    <option *ngFor="let list of memberList" [value]="edit_member.reference_name">{{list.member_fname}}</option>
+                                    <!-- <option value="Ranjeet Rawat">Ranjeet Rawat</option>
+                                    <option value="Shanu Jain">Shanu Jain</option> -->
+                                </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Status</div>
+                                        <select class="form-control" formControlName>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                                    </div>
+                                </div> -->
+                                <div class="col-lg-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Select Id Proof</div>
+                                        <div class="input-group login-txtbox">
+                                            <select placeholder="Select Id Proof" class="form-control" (change)="type_doc(addMemberForm.get('id_prof').value)" formControlName="id_prof">
+                                    <option  value="ADHAR CARD">ADHAR CARD</option>
+                                    <option  value="PAN CARD">PAN CARD</option>
+                                    <option  value="DRIVING LICENSE">DRIVING LICENSE</option>
+                                    <option  value="PAASPORT">PAASPORT</option>
+                                    <option  value="PAASPORT">VOTER ID</option>
+                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12" *ngIf="type_doc_status == 1">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Adharcard Number</div>
+                                        <div class="input-group login-txtbox">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                            </div>
+                                            <input class="form-control" (keyup)="adharcard()" type="text" placeholder="Enter no." formControlName="id_no" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-xs-12" *ngIf="type_doc_status == 0">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Id Number</div>
+                                        <div class="input-group login-txtbox">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                            </div>
+                                            <input class="form-control" (keyup)="adharcard()" type="text" placeholder="Enter no." formControlName="id_no" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="login-input-label">Address</div>
+                                        <div class="input-group login-txtbox">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="mdi mdi-map"></i></span>
+                                            </div>
+                                            <input class="form-control" type="text" formControlName="address" placeholder="Enter Address Proof" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-12 small_desk100">
+                                            <div class="form-group">
+                                                <div class="login-input-label">Select Profile Pic</div>
+
+                                                <!-- <webcam [height]="150" [width]="150" [trigger]="triggerObservable" (imageCapture)="fileChangeEvent($event)">
+                                                </webcam> -->
+                                                <!-- <div class="col-sm-6"><img height="150px"  width="150px" [src]="croppedImage" /></div>
+                                                <image-cropper [imageBase64]="imageChangedEvent" [cropperMinHeight]="100" [cropperMinWidth]="100" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper> -->
+                                                <!-- <button class="btn btn-danger mr-2" (click)="showNotification('snackbar-danger','You have new Massage...!!!','bottom','center')">Upload File</button> -->
+                                                <!-- After scan / upload image -->
+                                                <div class="card image-uploadbox">
+                                                    <div class="image_guest_block">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 sol-sm-4">
+                                                                <webcam [width]="230" [height]="230" class="webcamera_block card" [trigger]="triggerObservable" (imageCapture)="fileChangeEvent($event)">
+                                                                </webcam>
+                                                                <button class="btn btn-primary btn-block click_image mb-3" (click)="triggerSnapshot();">Click Image</button>
+                                                            </div>
+                                                            <div class="col-lg-4 sol-sm-4">
+                                                                <image-cropper class="cropper_setting card" [imageBase64]="imageChangedEvent" [cropperMinHeight]="100" [cropperMinWidth]="100" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+                                                            </div>
+                                                            <div class="col-lg-4 sol-sm-4">
+                                                                <img class="cropped_image card" [src]="croppedImage" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="card image-uploadbox">
+                                                    <button class="btn btn-primary mr-2" (click)="triggerSnapshot();">Take Shot</button>
+                                                    <img src="./assets/imgs/pinku-profile.jpg" formControlName= "myFile"/>
+                                                    <webcam [height]="150" [width]="150" [trigger]="triggerObservable" (imageCapture)="fileChangeEvent($event)">
+                                                    </webcam>
+                                                    <div class="col-sm-6"><img height="150px"  width="150px" [src]="croppedImage"/></div>
+                                                    <image-cropper [imageBase64]="imageChangedEvent" [cropperMinHeight]="100" [cropperMinWidth]="100" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xs-12 small_desk50">
+                                            <div class="form-group">
+                                                <div class="login-input-label">Id Proof front Image</div>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="scanToJpg();">Scan Document Of ID Proof Front</button>
+                                                <!-- After Scan Image -->
+                                                <div class="card image-uploadbox">
+                                                    <img src="./assets/imgs/licence.jpg" formControlName="document" />
+                                                </div>
+                                                <button type="button" class="btn btn-primary scan_clrbtn btn-block btn-sm" (click)="front_done()"><i class=" mr-1"></i>Done</button>
+                                                <p style="color: green;" *ngIf="done_front_status==1">Front Side OF Document Selected</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-xs-12 small_desk50">
+                                            <div class="form-group">
+                                                <div class="login-input-label">Id Proof back Image</div>
+                                                <button class="btn btn-danger btn-sm" onclick="scanToJpg();">Scan Document Of ID Proof Back</button>
+                                                <!-- After Scan Image -->
+                                                <div class="card image-uploadbox">
+                                                    <img src="./assets/imgs/licence.jpg" formControlName="document_back" />
+                                                </div>
+                                                <button type="button" class="btn btn-primary scan_clrbtn btn-block btn-sm" (click)="Back_done()"><i class=" mr-1"></i>Done</button>
+                                                <p style="color: green;" *ngIf="done_back_status==1">Back Side OF Document Selected</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer text-center bg-footer">
+                            <!-- <button class="btn btn-primary" (click)="register_member()">
+                                <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Submit
+                            </button>
+                            <button class="btn btn-info ml-2">
+                                <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Close
+                            </button> -->
+
+                            <ng-container *ngIf="form_status == 'new' ; then saveBtn; else updateBtn">
+                            </ng-container>
+                            <ng-template #saveBtn>
+                                <button class="btn btn-primary">
+                                    <!-- <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+                                    Submit
+                                </button>
+                                <button class="btn btn-info ml-2">
+                                    <!-- <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+                                    Close
+                                </button>
+                            </ng-template>
+                            <ng-template #updateBtn>
+                                <button class="btn btn-primary">
+                                    <!-- <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+                                    Update
+                                </button>
+                                <button class="btn btn-info ml-2">
+                                    <!-- <span *ngIf="addupdate_loading" class="spinner-border spinner-border-sm mr-1"></span> -->
+                                    Close
+                                </button>
+                            </ng-template>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- View Member Details Popup -->
+    <div class="modal upload-filemodel fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <table class="table table-bordered table-responsive popup_table bg-white more_table">
+                            <tbody>
+                                <tr>
+                                    <td><b>Member No. :</b></td>
+                                    <td>S-1874</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Member Name :</b></td>
+                                    <td>Sumit Raj</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gender :</b></td>
+                                    <td>Male</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mobile :</b></td>
+                                    <td>6263626505</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email Id :</b></td>
+                                    <td>sumit@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Birth Date :</b></td>
+                                    <td>30-11-2020</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Id Proof No. :</b></td>
+                                    <td>88968521545</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Card Assigned :</b></td>
+                                    <td>
+                                        <div class="badge bg-primary text-white">Assigned</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status :</b></td>
+                                    <td>
+                                        <div class="badge bg-success text-white">Active</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Address :</b></td>
+                                    <td>Home no. 72, bajrang nagar jabalpur </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mt-3">
+                            <div class="col-lg-4 col-xs-12">
+                                <div class="view_img_block">
+                                    <h5><b>Profile Image</b></h5>
+                                    <img src="./assets/imgs/pinku-profile.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-12">
+                                <div class="view_img_block">
+                                    <h5><b>Proof Document front</b></h5>
+                                    <img src="./assets/imgs/licence.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-12">
+                                <div class="view_img_block">
+                                    <h5><b>Proof Document back</b></h5>
+                                    <img src="./assets/imgs/licence.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Assigned Card Popup -->
+    <div class="modal upload-filemodel fade" id="assign_card_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Assign Card</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <div class="card-body apic-lb-form-box">
+                        <form>
+                            <div class="form-group">
+                                <div class="login-input-label">Scan RFID of card</div>
+                                <div class="input-group login-txtbox">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-currency-inr"></i></span>
+                                    </div>
+                                    <input type="number" placeholder="Enter RFID number of card" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="login-btnblock text-center">
+                                <button class="btn btn-primary">
+                                      <span *ngIf="generatecard_loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                       Generate Card
+                                  </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

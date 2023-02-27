@@ -1,0 +1,581 @@
+<section *ngIf="checkprint==1">
+    <div class="dashboard-containner">
+        <div class="row report_brics_row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-warning">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-silverware"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Restaurant Sales</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" (click)="reports_type(1)" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-success">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-credit-card-multiple"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Product Sale</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" (click)="reports_type(2)" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-gray">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-cards"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Expense Voucher</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" (click)="reports_type(3)" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-danger">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-home-group"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Rooms Sales</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" (click)="reports_type(4)" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-indigo">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-home-lightbulb"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Rooms Details</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-pink">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-shield-home"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Police Report For Rooms</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-yellow">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-sale"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Extra Category sales</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-danger">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-close-octagon"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Cancel Product</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix text-info">
+                            <div class="float-left card-icon">
+                                <i class="mdi mdi-card-account-details-star"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="text-right font-18">Credit Report Customer wise</p>
+                                <div class="col-">
+                                    <h3 class="text-right mb-0"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="view_row" data-toggle="modal" data-target="#report_print_modal">Generate Report
+                            <i class="mdi mdi-chevron-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal upload-filemodel fade" id="report_print_modal" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reports Print by date</h4>
+                    <button type="button" id="close_kot_modal" id="close_restaurent_report" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body p-0 bg-secondary">
+                    <form [formGroup]="report_dates">
+                        <div class="card-body apic-lb-form-box">
+                            <div class="row">
+                                <div class="col-lg-12 col-xs-12 mb-3">
+                                    <input class="mdi mdi" nput type="date" formControlName="start_date" placeholder="Select Start Date" class="date_searchtxt form-control">
+                                </div>
+                                <div class="col-lg-12 col-xs-12">
+                                    <input class="mdi mdi" nput type="date" formControlName="end_date" placeholder="Select End Date" class="date_searchtxt form-control">
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button [disabled]="!report_dates.valid" (click)="get_reports()" class="btn btn-md btn-info">
+                                <i class="mdi mdi-chart-bar-stacked mr-1"></i>Genrate Report
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section *ngIf="checkprint==2" class="print_layout">
+    <div id="invoice-POS">
+        <div id="top" style="text-align: center;">
+            <!-- <div class="info" style="font-family: Arial; font-weight: bold">
+                <p style="margin-bottom:0px; font-size:18px; color:#000;">{{rechargeRecieptData.branch_name}}</p>
+                <p style="font-size: 11px; color:#000; text-transform: none">{{rechargeRecieptData.b_address}}</p>
+                <p style="font-size: 11px; color:#000; text-transform: none">{{rechargeRecieptData.b_mobile}} - {{rechargeRecieptData.b_email}}</p>
+                <p style="font-size: 11px; color:#000;text-transform: none">GSTIN - {{rechargeRecieptData.b_gstin}}</p>
+                <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:2% 25%;height: 3px;">
+            </div> -->
+            <div class="info" style="display: inline-block;width: 100%;font-weight: bold;">
+                <h3 style="margin-bottom:0px; font-size:18px;line-height: 20px; color:#000000;"><b>{{rechargeRecieptData.branch_name}}</b></h3>
+                <p style="margin-bottom:5px;font-size: 14px;line-height: 20px;color:#000000;font-weight: bold;">{{rechargeRecieptData.b_address}}</p>
+                <p style="font-size: 14px;line-height: 20px; color:#000000; text-transform: none;margin-bottom: 0px;font-weight: bold">{{rechargeRecieptData.b_mobile}} {{rechargeRecieptData.b_email}}</p>
+                <p style="font-size: 14px;line-height: 20px; color:#000000;text-transform: none;margin-bottom: 0px;font-weight: bold">GSTIN - {{rechargeRecieptData.b_gstin}}</p>
+                <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:10px 0px;height: 3px;font-weight: bold;">
+            </div>
+        </div>
+        <div id="mid">
+            <div class="info" style="font-family: Arial;">
+                <p>Printed By : {{rechargeRecieptData.staff_fname}}&nbsp; {{rechargeRecieptData.staff_lname}}
+                    <span style="float: right;font-weight: bold;">Printed Date : {{rechargeRecieptData.date}}</span>
+                </p>
+                <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+                <h4><b>Cashier Sales Restaurant Report</b></h4>
+                <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+                <div style="width: 100%;background:#f5f5ff;font-weight: bold;margin-bottom: 20px;">
+                    <div style="width:24%;display: inline-block;padding: 5px;border-right: solid;">
+                        <p style="margin:0px;font-weight: bold;">Table Receipt: {{rechargeRecieptData.totalorders}}</p>
+                    </div>
+                    <div style="width:24%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                        <p style="margin:0px;font-weight: bold;">Table Void Receipt : 1500</p>
+                    </div>
+                    <div style="width:24%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                        <p style="margin:0px;font-weight: bold;">Total Complimentary: 1200</p>
+                    </div>
+                    <div style="width:24%;display: inline-block;margin-left:.8%;padding: 5px;">
+                        <p style="margin:0px;font-weight: bold;">Total Pax: 1200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+        <h4><b>Sales Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+        <div style="width: 100%;background:#f5f5ff;font-weight: bold;margin-bottom: 20px;">
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Gross Sales : <span style="float: right; margin-right: 5px;">{{rechargeRecieptData.total_amount}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Tax : <span style="float: right;margin-right: 5px;">{{(rechargeRecieptData.tax)}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Total Discount : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.discount}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Expenses : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.expenses}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Round Off : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Total Gratuity Receipt : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Surcharge : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Net Sales : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.NetSales}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Cash On Hand : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.cash}}</span></p>
+            </div>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+        <h4><b>{{rechargeRecieptData.branch_name}}</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+        <div style="width: 100%;background:#f5f5ff;font-weight: bold;margin-bottom: 20px;">
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Gross Sales : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.total_amount}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">SGST : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.tax/2}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">CGST: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.tax/2}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Tax : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.tax}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Discount: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.discount}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Total Expenses: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.expenses}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Round Off : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Gratuity Receipt : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Total Surcharge : <span style="float: right;margin-right: 5px;">0.00</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Total Net Sales : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.NetSales }}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Cash On Hand : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.NetSales - rechargeRecieptData.membership}}</span></p>
+            </div>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+        <h4><b>Payment Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+        <div style="width: 100%;background:#f5f5ff;font-weight: bold;margin-bottom: 20px;">
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">CARD : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.card}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">CASH : <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.cash}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">PAYTM: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.paytm}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">GOOGLE PAY: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.googlepay}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">PHONE PE: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.phonepe}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">AMAZON PAY: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.amazon}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">OTHER: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.other}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;border-right: solid;">
+                <p style="margin:0px;font-weight: bold;">Membership: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.membership}}</span></p>
+            </div>
+            <div style="width:32.2%;display: inline-block;margin-left:.8%;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;font-size: 16px;"><b>Total: <span style="float: right;margin-right: 5px;">{{rechargeRecieptData.total-rechargeRecieptData.discount}}</span></b></p>
+            </div>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+        <h4><b>Discount Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+        <div style="width: 100%;background:#f5f5ff;font-weight: bold;margin-bottom: 20px;">
+            <div style="width:32.2%;display: inline-block;padding: 5px;">
+                <p style="margin:0px;font-weight: bold;">Discount Ammount: {{rechargeRecieptData.discount}}</p>
+            </div>
+        </div>
+        <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:10px 0px;height: 3px;font-weight: bold;">
+    </div>
+</section>
+<section *ngIf="checkprint==3" class="print_layout">
+    <div id="invoice-POS">
+        <div id="top" style="text-align: center;">
+            <div class="info" style="display: inline-block;width: 100%;font-weight: bold;">
+                <h3 style="margin-bottom:0px; font-size:18px;line-height: 20px; color:#000000;"><b>{{rechargeRecieptData.branch_name}}</b></h3>
+                <p style="margin-bottom:5px;font-size: 14px;line-height: 20px;color:#000000;font-weight: bold;">{{rechargeRecieptData.b_address}}</p>
+                <p style="font-size: 14px;line-height: 20px; color:#000000; text-transform: none;margin-bottom: 0px;font-weight: bold">{{rechargeRecieptData.b_mobile}} {{rechargeRecieptData.b_email}}</p>
+                <p style="font-size: 14px;line-height: 20px; color:#000000;text-transform: none;margin-bottom: 0px;font-weight: bold">GSTIN - {{rechargeRecieptData.b_gstin}}</p>
+                <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:10px 0px;height: 3px;font-weight: bold;">
+            </div>
+        </div>
+        <p>Printed By : {{rechargeRecieptData.staff_fname}}&nbsp; {{rechargeRecieptData.staff_lname}}
+            <span style="float: right;font-weight: bold;">Printed Date : {{rechargeRecieptData.date}}</span>
+        </p>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+        <h4><b>Cashier Sales Restaurant Report</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+        <div id="bot" style="font-family: Arial">
+            <div id="table">
+                <table class="table table-bordered">
+                    <tr class="tabletitle">
+                        <th class="qty" style="border-bottom: 1px dashed black ;width: 40px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;text-align: center;">S.no</p>
+                        </th>
+                        <th class="qty" style="border-bottom: 1px dashed black;width: 140px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Item Name</p>
+                        </th>
+                        <th class="qty" style="border-bottom: 1px dashed black;text-align: center;;width: 60px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Qty</p>
+                        </th>
+                        <th class="qty" style="border-bottom: 1px dashed black;width: 100px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Amount</p>
+                        </th>
+                    </tr>
+                    <tr *ngFor="let get of rechargeRecieptData.result11; let n = index;">
+                        <th style="width: 40px;text-align: center;">{{n+1}}.</th>
+                        <th style="width: 140px">{{get.dorder_name}}</th>
+                        <th style="text-align: center;width: 60px;">{{get.dorder_qty}}</th>
+                        <th style="text-align: right;width: 100px;">{{get.dorder_total_price}} </th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="font-size: 20px;text-align: center;"><b>Total</b></td>
+                        <td style="text-align: center;width: 60px;font-size: 20px;">xx</td>
+                        <td style="text-align: right;width: 100px;font-size: 20px;"><b>{{rechargeRecieptData.total123}}</b></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:10px 0px;height: 3px;font-weight: bold;">
+    </div>
+</section>
+<section *ngIf="checkprint==4" class="print_layout">
+    <div style="text-align: center;">
+        <div class="info" style="display: inline-block;width: 100%;font-weight: bold;">
+            <h3 style="margin-bottom:0px; font-size:18px;line-height: 20px; color:#000000;"><b>{{rechargeRecieptData.branch_name}}</b></h3>
+            <p style="margin-bottom:5px;font-size: 14px;line-height: 20px;color:#000000;font-weight: bold;">{{rechargeRecieptData.b_address}}</p>
+            <p style="font-size: 14px;line-height: 20px; color:#000000; text-transform: none;margin-bottom: 0px;font-weight: bold">{{rechargeRecieptData.b_mobile}} {{rechargeRecieptData.b_email}}</p>
+            <p style="font-size: 14px;line-height: 20px; color:#000000;text-transform: none;margin-bottom: 0px;font-weight: bold">GSTIN - {{rechargeRecieptData.b_gstin}}</p>
+            <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:10px 0px;height: 3px;font-weight: bold;">
+        </div>
+    </div>
+    <p>Printed By : {{rechargeRecieptData.staff_fname}}&nbsp; {{rechargeRecieptData.staff_lname}}
+        <span style="float: right;font-weight: bold;">Printed Date : {{rechargeRecieptData.date}}</span>
+    </p>
+    <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px;">
+    <h4><b>Expense Voucher Report</b></h4>
+    <hr style="border-bottom:2px dashed black;width: 100%;margin: 5px 0px 20px 0px;">
+    <div id="invoice-POS">
+        <div id="bot" style="font-family: Arial">
+            <div id="table">
+                <table class="table table-bordered">
+                    <tr class="tabletitle">
+                        <th class="qty" style="border-bottom: 1px dashed black ;width: 40px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;text-align: center;">S.no</p>
+                        </th>
+                        <th style="border-bottom: 1px dashed black;">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Type OF Expense</p>
+                        </th>
+                        <th style="border-bottom: 1px dashed black;">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Date</p>
+                        </th>
+                        <th style="border-bottom: 1px dashed black;">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Generated By</p>
+                        </th>
+                        <th style="border-bottom: 1px dashed black;">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Allot To</p>
+                        </th>
+                        <th style="border-bottom: 1px dashed black;width: 100px">
+                            <p style="margin: 0px;padding-top: 5px;padding-bottom: 5px;font-weight: bold;">Amount</p>
+                        </th>
+                    </tr>
+                    <tr *ngFor="let get of rechargeRecieptData.result11; let n = index;">
+                        <th style="width: 40px;text-align: center;">{{n+1}}.</th>
+                        <th>{{get.cat_name}}</th>
+                        <th style="width: 140px">12-jun-2020</th>
+                        <th style="text-align: right;">{{get.staff_fname_expense}}&nbsp;{{get.staff_lname_expense}}</th>
+                        <th style="text-align: center;">{{get.staff_name}}</th>
+                        <th style="text-align: right;width: 100px;">{{get.price}} </th>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="font-size: 20px;text-align: right;"><b>Total</b></td>
+                        <td style="text-align: right;width: 100px;font-size: 20px;"><b>{{rechargeRecieptData.total123}}</b></td>
+                    </tr>
+                </table>>
+            </div>
+        </div>
+    </div>
+</section>
+<section *ngIf="checkprint==5" class="print_layout">
+    <div id="invoice-POS">
+        <div id="top" style="text-align: center;">
+            <div class="info" style="font-family: Arial; font-weight: bold">
+                <p style="margin-bottom:0px; font-size:18px; color:#000;">{{rechargeRecieptData.branch_name}}</p>
+                <p style="font-size: 11px; color:#000; text-transform: none">{{rechargeRecieptData.b_address}}</p>
+                <p style="font-size: 11px; color:#000; text-transform: none">{{rechargeRecieptData.b_mobile}} - {{rechargeRecieptData.b_email}}</p>
+                <p style="font-size: 11px; color:#000;text-transform: none">GSTIN - {{rechargeRecieptData.b_gstin}}</p>
+
+
+
+                <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:2% 25%;height: 3px;">
+
+            </div>
+        </div>
+        <div id="mid">
+            <div class="info" style="font-family: Arial">
+
+                <h4><b>Cashier Rooms Sales Report</b></h4>
+                <p>Printed By : {{rechargeRecieptData.staff_fname}}&nbsp; {{rechargeRecieptData.staff_lname}}</p>
+                <p>Date : {{rechargeRecieptData.date}}</p>
+                <hr style="border-top: 1px dashed black;border-bottom: 1px dashed black;margin:2% 25%;height: 3px;">
+                <!--     <p>Table Receipt: {{rechargeRecieptData.totalorders}}</p> -->
+                <p>Table Void Receipt : </p>
+
+                <p>Total Complimentary: </p>
+                <p>Total Pax: </p>
+                <p>OYO Check In: {{rechargeRecieptData.oyo}} </p>
+                <p>WalkIn Check In: {{rechargeRecieptData.walkin}} </p>
+            </div>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <h4><b>Sales Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <div class="info" style="font-family: Arial">
+
+
+            <p>Total Gross Sales : {{rechargeRecieptData.total}}</p>
+            <p>Total Tax : {{(rechargeRecieptData.tax)}}</p>
+
+            <p>Total Discount: {{rechargeRecieptData.discount}}</p>
+
+            <p>Total Round Off : </p>
+
+            <p>Total Gratuity Receipt : </p>
+            <p>Total Surcharge: </p>
+            <p><b>Total Net Sales: {{rechargeRecieptData.NetSales}}</b> </p>
+            <p><b>Cash On Hand: {{rechargeRecieptData.NetSales - rechargeRecieptData.membership }} </b> </p>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <h4><b>{{rechargeRecieptData.branch_name}}</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <div class="info" style="font-family: Arial">
+
+
+            <p> Gross Sales : {{rechargeRecieptData.total}}</p>
+            <p>SGST : {{rechargeRecieptData.tax/2}}</p>
+
+            <p>CGST: {{rechargeRecieptData.tax/2}}</p>
+            <p>Total Tax : {{rechargeRecieptData.tax}}</p>
+            <p>Total Discount: {{rechargeRecieptData.discount}}</p>
+
+            <p>Total Round Off : </p>
+
+            <p>Total Gratuity Receipt : </p>
+            <p>Total Surcharge: </p>
+            <p><b>Total Net Sales: {{rechargeRecieptData.NetSales }} </b> </p>
+            <p><b>Cash On Hand: {{rechargeRecieptData.NetSales - rechargeRecieptData.membership }} </b> </p>
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <h4><b>Payment Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <div class="info" style="font-family: Arial">
+
+
+            <p> CARD : {{rechargeRecieptData.card}}</p>
+            <p>CASH : {{rechargeRecieptData.cash}}</p>
+
+            <p>PAYTM: {{rechargeRecieptData.paytm}}</p>
+            <p>GOOGLE PAY: {{rechargeRecieptData.googlepay}}</p>
+            <p>PHONE PE: {{rechargeRecieptData.phonepe}}</p>
+            <p>AMAZON PAY: {{rechargeRecieptData.amazon}}</p>
+            <p>OTHER: {{rechargeRecieptData.other}}</p>
+            <p>Membership: {{rechargeRecieptData.membership}}</p>
+            <p><b>Total: {{rechargeRecieptData.total-rechargeRecieptData.discount}}</b></p>
+
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <h4><b>Discount Summary</b></h4>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+        <div class="info" style="font-family: Arial">
+
+
+            <p> Discount Ammount: {{rechargeRecieptData.discount}}</p>
+
+
+        </div>
+        <hr style="border-bottom:2px dashed black;width: 100%">
+    </div>
+
+
+
+</section>
